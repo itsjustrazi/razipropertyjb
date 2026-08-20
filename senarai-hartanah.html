@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senarai Hartanah — Razi Property JB</title>
+<meta name="description" content="Semua senarai projek baru & hartanah pilihan Razi di Johor Bahru. Filter mengikut kawasan. Hubungi 011-5406 5243.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Senarai Hartanah — Razi Property JB">
+<meta property="og:description" content="Semua projek baru & hartanah pilihan di Johor Bahru. Ejen berdaftar OD Legacy Realty.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0d1821;
+    --white: #ffffff;
+    --ivory: #F8F5EF;
+    --ivory-dark: #f0ece3;
+    --gray-100: #ebebeb;
+    --gray-400: #a0a0a0;
+    --gray-600: #666;
+    --blue: #1A3A5C;
+    --blue-mid: #2B5C8A;
+    --blue-light: #d6e6f5;
+    --yellow: #D4A843;
+    --yellow-light: #e8c97a;
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-body);
+    background: var(--blue);
+    color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV (same as main site) ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 0 5vw;
+    height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(26,58,92,0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-brand { display: flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
+  .nav-brand:hover { opacity: 0.85; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: 0.72rem; font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none; letter-spacing: 0.08em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--white); background: var(--yellow);
+    padding: 8px 18px; border-radius: 100px;
+    text-decoration: none; letter-spacing: 0.06em;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--yellow-light); color: var(--blue); transform: scale(1.03); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 200; position: relative; background: none; border: none; -webkit-tap-highlight-color: transparent; }
+  .nav-hamburger span { width: 22px; height: 2px; background: var(--white); display: block; transition: all 0.3s; border-radius: 2px; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed; top: 56px; left: 0; right: 0; z-index: 1001;
+    background: var(--blue);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    flex-direction: column; padding: 8px 0 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    padding: 16px 6vw; font-size: 0.95rem; font-weight: 400;
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    letter-spacing: 0.04em; transition: all 0.15s;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+  .mobile-nav a:active { background: rgba(255,255,255,0.1); color: var(--white); }
+
+  /* ── PAGE HEADER (omgadrian.com/browse-shop style) ── */
+  .browse-header {
+    padding: 130px 5vw 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .browse-eyebrow {
+    font-size: 0.65rem; font-weight: 500; color: var(--yellow);
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 14px; display: block;
+  }
+  .browse-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 700; color: var(--white); line-height: 1.05;
+    margin-bottom: 16px;
+  }
+  .browse-sub {
+    font-size: 0.92rem; font-weight: 300; color: rgba(255,255,255,0.5);
+    max-width: 560px; line-height: 1.7;
+  }
+
+  /* ── FILTER PILLS (category bar, browse-shop style) ── */
+  .filter-bar {
+    padding: 24px 5vw;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .filter-label {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.35);
+    margin-right: 6px;
+  }
+  .filter-pill {
+    padding: 9px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15);
+    background: transparent; color: rgba(255,255,255,0.6);
+    font-family: var(--font-body); font-size: 0.76rem; font-weight: 400;
+    cursor: pointer; transition: all 0.25s; letter-spacing: 0.02em;
+  }
+  .filter-pill:hover { border-color: var(--yellow); color: var(--yellow); }
+  .filter-pill.active { background: var(--yellow); border-color: var(--yellow); color: var(--blue); font-weight: 500; }
+
+  /* ── GRID (browse-shop product-grid style) ── */
+  .browse-grid-wrap { padding: 48px 5vw 100px; }
+  .browse-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .listing-card {
+    border-radius: 16px; overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    text-decoration: none; color: inherit; display: block;
+  }
+  .listing-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.16); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .lc-img { height: 220px; overflow: hidden; position: relative; background: var(--blue); }
+  .lc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.85; }
+  .listing-card:hover .lc-img img { transform: scale(1.04); }
+  .lc-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%); }
+  .lc-location {
+    position: absolute; bottom: 14px; left: 16px;
+    font-size: 0.6rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .lc-body { padding: 22px 22px 20px; }
+  .lc-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 6px; }
+  .lc-title em { font-style: italic; color: var(--yellow-light); }
+  .lc-dev { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-bottom: 16px; line-height: 1.5; }
+  .lc-specs { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+  .lc-spec { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 6px; text-align: center; }
+  .lc-spec-val { font-size: 0.82rem; font-weight: 500; color: var(--white); line-height: 1; }
+  .lc-spec-val.gold { color: var(--yellow-light); font-family: var(--font-display); font-size: 0.92rem; }
+  .lc-spec-label { font-size: 0.55rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; }
+  .lc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+  .lc-tag { font-size: 0.58rem; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.04em; }
+  .lc-tag-gold { border: 1px solid var(--yellow); color: var(--yellow); }
+  .lc-cta { display: flex; align-items: center; gap: 6px; font-size: 0.74rem; color: var(--yellow); letter-spacing: 0.03em; }
+
+  .no-results {
+    display: none; text-align: center; padding: 80px 5vw;
+    grid-column: 1 / -1;
+  }
+  .no-results h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+  .no-results p { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+
+  /* ── FOOTER (same as main site) ── */
+  footer { background: #0d2137; padding: 48px 5vw 36px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
+  .footer-brand-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .footer-brand-sub { font-size: 0.65rem; color: rgba(255,255,255,0.25); letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; letter-spacing: 0.04em; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
+  .footer-wa { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); font-size: 0.72rem; padding: 8px 16px; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
+  .footer-wa:hover { background: var(--yellow); border-color: var(--yellow); color: var(--blue); }
+  .footer-wa svg { width: 13px; height: 13px; fill: currentColor; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    .browse-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-cta { display: none; }
+    nav { padding: 0 6vw; }
+    .browse-header { padding: 100px 6vw 32px; }
+    .filter-bar { padding: 20px 6vw; }
+    .filter-label { width: 100%; margin-bottom: 4px; }
+    .browse-grid-wrap { padding: 32px 6vw 80px; }
+    .browse-grid {
+      grid-template-columns: 1fr; gap: 0;
+      margin: 0 -6vw; width: calc(100% + 12vw);
+    }
+    .listing-card { border-radius: 0; border-left: none; border-right: none; }
+    .lc-img { height: 260px; }
+    .lc-body { padding: 22px 6vw 20px; }
+    .footer-top { flex-direction: column; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:40px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3));"></a>
+  <div class="nav-links">
+    <a href="index.html#listings">Listing</a>
+    <a href="index.html#video-tour">Video Tour</a>
+    <a href="index.html#inquiry">Inquiry</a>
+    <a href="https://wa.me/601154065243" target="_blank">WhatsApp</a>
+  </div>
+  <a href="index.html#inquiry" class="nav-cta">Hubungi Saya</a>
+  <div class="nav-hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html#listings" onclick="toggleMenu()">Listing</a>
+  <a href="index.html#video-tour" onclick="toggleMenu()">Video Tour</a>
+  <a href="index.html#inquiry" onclick="toggleMenu()">Inquiry</a>
+  <a href="https://wa.me/601154065243" target="_blank" onclick="toggleMenu()">WhatsApp</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="browse-header">
+  <span class="browse-eyebrow">Senarai Hartanah · All Listings</span>
+  <h1 class="browse-title">Semua <em style="font-style:italic;color:var(--yellow-light);">Hartanah.</em></h1>
+  <p class="browse-sub">Semua projek baru & hartanah pilihan Razi di Johor Bahru. Filter mengikut kawasan untuk cari yang sesuai dengan anda.</p>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Kawasan</span>
+  <button class="filter-pill active" data-filter="all" onclick="filterListings('all', this)">Semua</button>
+  <button class="filter-pill" data-filter="jb-city" onclick="filterListings('jb-city', this)">JB City</button>
+  <button class="filter-pill" data-filter="pasir-gudang" onclick="filterListings('pasir-gudang', this)">Pasir Gudang / Masai</button>
+  <button class="filter-pill" data-filter="skudai" onclick="filterListings('skudai', this)">Skudai / Nusajaya</button>
+  <button class="filter-pill" data-filter="iskandar-puteri" onclick="filterListings('iskandar-puteri', this)">Iskandar Puteri</button>
+  <button class="filter-pill" data-filter="kulai" onclick="filterListings('kulai', this)">Kulai / Senai</button>
+</div>
+
+<!-- GRID -->
+<div class="browse-grid-wrap">
+  <div class="browse-grid" id="browseGrid">
+
+    <a href="project-straits-view-duo.html" class="listing-card" data-area="jb-city">
+      <div class="lc-img">
+        <img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Permas Jaya, Johor Bahru</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">The Straits View <em>DUO</em></div>
+        <div class="lc-dev">by BRDB Developments · Freehold · 33 Tingkat</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">RM398K</div><div class="lc-spec-label">Dari</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">645–1,529</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">8 min</div><div class="lc-spec-label">CIQ/RTS</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <a href="project-allamanda.html" class="listing-card" data-area="pasir-gudang">
+      <div class="lc-img">
+        <img src="allamanda-hero.jpg" alt="Allamanda Phase 6">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Meridin East, Pasir Gudang</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">Allamanda <em>Phase 6</em></div>
+        <div class="lc-dev">by Mah Sing Group · Freehold · Double Storey</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">RM491K</div><div class="lc-spec-label">Dari</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">1,676</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <a href="project-redhill.html" class="listing-card" data-area="pasir-gudang">
+      <div class="lc-img">
+        <img src="redhill-hero.jpg" alt="Redhill Seri Alam">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Seri Alam, Masai, JB</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">Red<em>hill</em></div>
+        <div class="lc-dev">by Alam Height · Freehold · Double Storey</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">RM619K</div><div class="lc-spec-label">Nett</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">1,951</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <a href="project-premium-height.html" class="listing-card" data-area="jb-city">
+      <div class="lc-img">
+        <img src="premium-height-hero.jpg" alt="Premium Height Residence">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Bandar Dato Onn, Johor Bahru</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">Premium <em>Height</em></div>
+        <div class="lc-dev">by MJK Group · Freehold · Kondominium</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">484–947</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">45</div><div class="lc-spec-label">Kemudahan</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <a href="project-calia-residence.html" class="listing-card" data-area="jb-city">
+      <div class="lc-img">
+        <img src="images/calia_residences.png" alt="Calia Residence Danga Bay">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Danga Bay, Johor Bahru City Centre</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">Calia <em>Residence</em></div>
+        <div class="lc-dev">by PGB · Freehold · Serviced Apartment</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">453–984</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">27</div><div class="lc-spec-label">Kemudahan</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <a href="m-grand-minori.html" class="listing-card" data-area="jb-city">
+      <div class="lc-img">
+        <img src="MGM_Apartment.jpg" alt="M Grand Minori Taman Pelangi">
+        <div class="lc-img-overlay"></div>
+        <div class="lc-location">Taman Pelangi, Johor Bahru</div>
+      </div>
+      <div class="lc-body">
+        <div class="lc-title">M Grand <em>Minori</em></div>
+        <div class="lc-dev">by Mah Sing Group · Freehold · Serviced Apartment</div>
+        <div class="lc-specs">
+          <div class="lc-spec"><div class="lc-spec-val gold">403–835</div><div class="lc-spec-label">sq.ft</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">Studio–3</div><div class="lc-spec-label">Bilik</div></div>
+          <div class="lc-spec"><div class="lc-spec-val">41</div><div class="lc-spec-label">Kemudahan</div></div>
+        </div>
+        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
+        <div class="lc-cta">Full Details →</div>
+      </div>
+    </a>
+
+    <div class="no-results" id="noResults">
+      <h3>Tiada listing dijumpai</h3>
+      <p>Belum ada projek di kawasan ini buat masa sekarang. WhatsApp Razi untuk tanya update terkini.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Razi Property JB</div>
+      <div class="footer-brand-sub">One Dream Legacy · REN Berdaftar · Johor Bahru</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#listings">Listing</a>
+      <a href="index.html#video-tour">Video Tour</a>
+      <a href="index.html#inquiry">Inquiry</a>
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© <span id="copy-year"></span> Razi Property JB. All rights reserved.</div>
+    <a href="https://wa.me/601154065243" target="_blank" class="footer-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Razi
+    </a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    const ham = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    const isOpen = nav.classList.contains('open');
+    const spans = ham.querySelectorAll('span');
+    if (isOpen) {
+      spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  }
+
+  function filterListings(area, btn) {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.listing-card');
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const match = area === 'all' || card.dataset.area === area;
+      card.style.display = match ? 'block' : 'none';
+      if (match) visibleCount++;
+    });
+
+    document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>
