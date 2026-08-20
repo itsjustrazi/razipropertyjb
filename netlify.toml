@@ -23,3 +23,76 @@
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Extension-less URLs: send any legacy .html address to its clean equivalent
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/m-grand-minori.html"
+  to = "/m-grand-minori"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy-policy.html"
+  to = "/privacy-policy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-allamanda.html"
+  to = "/project-allamanda"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-calia-residence.html"
+  to = "/project-calia-residence"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-fringe.html"
+  to = "/project-fringe"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-premium-height.html"
+  to = "/project-premium-height"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-redhill.html"
+  to = "/project-redhill"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-straits-view-duo.html"
+  to = "/project-straits-view-duo"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/senarai-hartanah.html"
+  to = "/senarai-hartanah"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/subsales.html"
+  to = "/subsales"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/subsales-skudai.html"
+  to = "/subsales-skudai"
+  status = 301
+  force = true
