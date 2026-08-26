@@ -15,18 +15,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* ROYAL BLUE / WHITE / BLACK THEME
+       Note: --yellow & --ivory variable names kept for compatibility with
+       existing class names (btn-pill-gold, etc) but now hold blue/white values. */
     --black: #0d1821;
     --white: #ffffff;
-    --ivory: #F8F5EF;
-    --ivory-dark: #f0ece3;
+    --ivory: #FFFFFF;
+    --ivory-dark: #F2F4FA;
     --gray-100: #ebebeb;
     --gray-400: #a0a0a0;
     --gray-600: #666;
     --blue: #1A3A5C;
     --blue-mid: #2B5C8A;
     --blue-light: #d6e6f5;
-    --yellow: #D4A843;
-    --yellow-light: #e8c97a;
+    --yellow: #1A3A5C;
+    --yellow-light: #6B85E8;
     --font-display: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
   }
@@ -67,13 +70,13 @@
     display: flex; align-items: center; gap: 28px;
   }
   .nav-links a {
-    font-size: 0.72rem; font-weight: 400;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem; font-weight: 500;
+    color: var(--white);
     text-decoration: none; letter-spacing: 0.08em;
     text-transform: uppercase; transition: color 0.2s;
   }
-  nav.light .nav-links a { color: var(--gray-600); }
-  .nav-links a:hover { color: var(--white); }
+  nav.light .nav-links a { color: var(--black); }
+  .nav-links a:hover { color: var(--yellow); }
   nav.light .nav-links a:hover { color: var(--blue); }
   .nav-cta {
     font-size: 0.72rem; font-weight: 500;
@@ -132,17 +135,16 @@
   }
   .hero-actions {
     display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.9s 0.9s ease forwards;
   }
   .btn-pill-gold {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--yellow); color: var(--blue);
+    background: var(--white); color: var(--black);
     font-family: var(--font-body); font-size: 0.82rem; font-weight: 600;
     padding: 14px 28px; border-radius: 100px;
     text-decoration: none; letter-spacing: 0.04em;
     transition: all 0.25s;
   }
-  .btn-pill-gold:hover { background: var(--blue); color: var(--white); transform: scale(1.04); box-shadow: 0 8px 32px rgba(201,168,76,0.35); }
+  .btn-pill-gold:hover { background: var(--blue); color: var(--white); transform: scale(1.04); box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
   .btn-pill-outline {
     display: inline-flex; align-items: center; gap: 8px;
     border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
@@ -267,119 +269,34 @@
     color: var(--yellow); position: relative; z-index: 1; transition: color 0.3s;
   }
 
-  /* ── LISTINGS ── */
+  /* ── LISTINGS (PropertyGuru-style cards) ── */
   .listings-section { background: var(--blue); }
-  .listings-tabs {
-    display: flex; gap: 4px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 100px; padding: 4px;
-    width: fit-content; margin: 40px 0 48px;
-  }
-  .l-tab {
-    padding: 10px 28px; border-radius: 100px; border: none;
-    font-family: var(--font-body); font-size: 0.78rem; font-weight: 500;
-    cursor: pointer; transition: all 0.3s; letter-spacing: 0.04em;
-    color: rgba(255,255,255,0.4); background: transparent;
-  }
-  .l-tab.active { background: var(--white); color: var(--black); }
-
   .listings-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
-  .listing-card {
-    border-radius: 16px; overflow: hidden;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  .pg-card {
+    background: var(--white); border-radius: 14px; overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    cursor: pointer; text-decoration: none; color: inherit; display: block;
   }
-  .listing-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.16); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
-  .lc-img {
-    height: 220px; overflow: hidden; position: relative;
-    background: var(--blue);
+  .pg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.35); }
+  .pg-img { height: 200px; overflow: hidden; position: relative; background: var(--blue-light); }
+  .pg-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .pg-card:hover .pg-img img { transform: scale(1.05); }
+  .pg-body { padding: 18px 20px 20px; }
+  .pg-loc { display: flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--gray-600); margin-bottom: 10px; }
+  .pg-loc svg { width: 13px; height: 13px; flex-shrink: 0; fill: var(--blue); }
+  .pg-title { font-size: 1.08rem; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 12px; }
+  .pg-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.76rem; color: var(--gray-600); margin-bottom: 8px; }
+  .pg-meta svg { width: 12px; height: 12px; fill: var(--gray-600); vertical-align: -1px; margin-right: 2px; }
+  .pg-meta .sep { color: #D1D5DB; }
+  .pg-completion { font-size: 0.76rem; color: var(--gray-600); margin-bottom: 16px; }
+  .pg-price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px; border-top: 1px solid #EEF0F5;
   }
-  .lc-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease;
-    opacity: 0.8;
-  }
-  .listing-card:hover .lc-img img { transform: scale(1.04); }
-  .lc-img-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
-  }
-  .lc-img-placeholder {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .lc-img-placeholder svg { width: 36px; height: 36px; fill: rgba(255,255,255,0.08); }
-  .lc-status {
-    position: absolute; top: 16px; right: 16px;
-    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 5px 12px; border-radius: 100px;
-    background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3); color: #22C55E;
-  }
-  .lc-location {
-    position: absolute; bottom: 14px; left: 16px;
-    font-size: 0.6rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase;
-  }
-  .lc-body { padding: 24px 24px 20px; }
-  .lc-title {
-    font-family: var(--font-display); font-size: 1.4rem; font-weight: 700;
-    color: var(--white); line-height: 1.2; margin-bottom: 6px;
-  }
-  .lc-title em { font-style: italic; color: var(--yellow-light); }
-  .lc-dev { font-size: 0.7rem; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-  .lc-specs {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 20px;
-  }
-  .lc-spec {
-    background: rgba(255,255,255,0.04); border-radius: 8px;
-    padding: 10px 8px; text-align: center;
-  }
-  .lc-spec-val { font-size: 0.9rem; font-weight: 500; color: var(--white); line-height: 1; }
-  .lc-spec-val.gold { color: var(--yellow-light); font-family: var(--font-display); font-size: 1rem; }
-  .lc-spec-label { font-size: 0.58rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
-  .lc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
-  .lc-tag {
-    font-size: 0.6rem; padding: 4px 10px; border-radius: 100px;
-    letter-spacing: 0.06em;
-  }
-  .lc-tag-gold { border: 1px solid var(--yellow); color: var(--yellow); }
-  .lc-tag-muted { border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); }
-  .lc-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .lc-btn-primary {
-    display: block; text-align: center; padding: 12px;
-    background: var(--yellow); color: var(--blue);
-    font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
-    border-radius: 8px; text-decoration: none; letter-spacing: 0.04em;
-    transition: all 0.2s;
-  }
-  .lc-btn-primary:hover { background: var(--blue-mid); color: var(--white); transform: scale(1.02); }
-  .lc-btn-ghost {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 12px; background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.7); font-family: var(--font-body);
-    font-size: 0.75rem; font-weight: 400; border-radius: 8px;
-    text-decoration: none; border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.2s;
-  }
-  .lc-btn-ghost:hover { background: rgba(255,255,255,0.1); color: var(--white); }
-  .lc-btn-ghost svg { width: 13px; height: 13px; fill: currentColor; }
-  .lc-placeholder {
-    border-radius: 16px; overflow: hidden;
-    border: 1.5px dashed rgba(255,255,255,0.08);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 12px; padding: 60px 32px; text-align: center;
-    min-height: 400px;
-  }
-  .lc-placeholder-icon {
-    width: 48px; height: 48px; border-radius: 50%;
-    border: 1px dashed rgba(255,255,255,0.12);
-    display: flex; align-items: center; justify-content: center;
-  }
-  .lc-placeholder-icon svg { width: 18px; height: 18px; fill: rgba(255,255,255,0.15); }
-  .lc-placeholder p { font-size: 0.72rem; color: rgba(255,255,255,0.18); line-height: 1.7; }
+  .pg-price-label { font-size: 0.68rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; }
+  .pg-price-val { font-size: 1rem; font-weight: 700; color: var(--blue); }
 
   /* ── INQUIRY ── */
   .inquiry-section { background: var(--ivory); }
@@ -622,6 +539,7 @@
   @media (max-width: 960px) {
     .services-grid { grid-template-columns: repeat(2,1fr); }
     .inquiry-grid { grid-template-columns: 1fr; gap: 48px; }
+    .listings-grid { grid-template-columns: repeat(2,1fr); }
   }
   @media (max-width: 700px) {
     .nav-links { display: none; }
@@ -656,14 +574,10 @@
     .svc-name { font-size: 1rem; }
 
     .listings-grid {
-      grid-template-columns: 1fr; gap: 0;
-      margin: 0 -6vw; width: calc(100% + 12vw);
+      grid-template-columns: 1fr; gap: 16px;
     }
-    .listing-card { border-radius: 0; border-left: none; border-right: none; }
-    .listing-card + .listing-card { border-top: none; }
-    .lc-img { height: 280px; }
-    .lc-body { padding: 24px 6vw 22px; }
-    .listings-tabs { margin: 32px -6vw 40px; margin-left: 0; }
+    .pg-img { height: 220px; }
+    .pg-body { padding: 16px 18px 18px; }
 
     .video-grid {
       grid-template-columns: 1fr; gap: 0;
@@ -680,14 +594,13 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:40px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3));"></a>
+  <a href="index.html" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:40px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3));"></a>
   <div class="nav-links">
-    <a href="#listings">Listing</a>
+    <a href="index.html">Home</a>
+    <a href="senarai-hartanah.html">Listing</a>
     <a href="#video-tour">Video Tour</a>
-    <a href="#inquiry">Inquiry</a>
-    <a href="https://wa.me/601154065243" target="_blank">WhatsApp</a>
+    <a href="#about">About Me</a>
   </div>
-  <a href="#inquiry" class="nav-cta">Hubungi Saya</a>
   <div class="nav-hamburger" onclick="toggleMenu()" id="hamburger">
     <span></span><span></span><span></span>
   </div>
@@ -695,18 +608,16 @@
 
 <!-- MOBILE NAV DRAWER -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#listings" onclick="toggleMenu()">Listing</a>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="senarai-hartanah.html" onclick="toggleMenu()">Listing</a>
   <a href="#video-tour" onclick="toggleMenu()">Video Tour</a>
-  <a href="#inquiry" onclick="toggleMenu()">Inquiry</a>
-  <a href="https://wa.me/601154065243" target="_blank" onclick="toggleMenu()">WhatsApp</a>
+  <a href="#about" onclick="toggleMenu()">About Me</a>
 </div>
 
 <!-- HERO -->
 <section class="hero" style="background:linear-gradient(160deg, #0d2137 0%, #1A3A5C 60%, #1e4a70 100%);">
   <div class="hero-content">
-    <p class="hero-eyebrow">Property Agent · Johor Bahru · One Dream Legacy</p>
     <h1 class="hero-title">Rumah Impian<br>Anda <em>Bermula</em><br>Di Sini.</h1>
-    <p class="hero-sub">Dari projek baru freehold hingga subsale ready-move-in — saya Razi, dan saya akan pastikan anda dapat yang terbaik.</p>
     <div class="hero-actions">
       <a href="#listings" class="btn-pill-gold">Lihat Listing</a>
       <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20dengan%20hartanah%20di%20JB" class="btn-pill-outline" target="_blank">
@@ -726,199 +637,90 @@
   <div class="reveal"><span class="s-eyebrow" style="color:var(--yellow);">Senarai Hartanah · Our Listings</span></div>
   <h2 class="s-title white reveal r2">Projek Baru<br><em>Pilihan.</em></h2>
 
-  <!-- NEW PROJECTS -->
-  <div id="lp-new" class="listings-grid">
+  <div class="listings-grid" style="margin-top:40px;">
 
     <!-- The Straits View DUO -->
-    <div class="listing-card reveal" onclick="location.href='project-straits-view-duo.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Permas Jaya, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">The Straits View <em>DUO</em></div>
-        <div class="lc-dev">by BRDB Developments · Freehold · 33 Tingkat · 715 Unit</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM398K</div><div class="lc-spec-label">Harga Dari</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">645–1,529</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">8 min</div><div class="lc-spec-label">ke CIQ/RTS</div></div>
+    <a href="project-straits-view-duo.html" class="pg-card reveal">
+      <div class="pg-img"><img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Permas Jaya, Johor Bahru
         </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">1BR+S · 3BR · 4BR DK</span>
-          <span class="lc-tag lc-tag-muted">GreenRE</span>
+        <div class="pg-title">The Straits View DUO</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          1, 3, 4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Service Apartment
         </div>
-        <div class="lc-actions">
-          <a href="project-straits-view-duo.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20The%20Straits%20View%20DUO" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Tanya Razi
-          </a>
+        <div class="pg-completion">Completion in 2029</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 398,000</span>
         </div>
       </div>
-    </div>
-
-    <!-- Allamanda Phase 6 -->
-    <div class="listing-card reveal r2" onclick="location.href='project-allamanda.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="allamanda-hero.jpg" alt="Allamanda Phase 6">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Meridin East, Pasir Gudang</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Allamanda <em>Phase 6</em></div>
-        <div class="lc-dev">by Mah Sing Group · Freehold · Double Storey Terrace · 18'×65'</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM491K</div><div class="lc-spec-label">Harga Dari</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1,676</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
-        </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">Gated & Guarded</span>
-          <span class="lc-tag lc-tag-muted">1,313 Ekar Township</span>
-        </div>
-        <div class="lc-actions">
-          <a href="project-allamanda.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20Allamanda%20Phase%206.%20Boleh%20info?" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Tanya Razi
-          </a>
-        </div>
-      </div>
-    </div>
+    </a>
 
     <!-- Redhill -->
-    <div class="listing-card reveal r4" onclick="location.href='project-redhill.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="redhill-hero.jpg" alt="Redhill Seri Alam">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Seri Alam, Masai, JB</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Red<em>hill</em></div>
-        <div class="lc-dev">by Alam Height · Freehold · Double Storey · 20'×70' · 231 Unit</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM619K</div><div class="lc-spec-label">Nett (Bumi)</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1,951</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+    <a href="project-redhill.html" class="pg-card reveal r2">
+      <div class="pg-img"><img src="redhill-hero.jpg" alt="Redhill Seri Alam"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Seri Alam, Masai, JB
         </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">Move-in Bonus RM20K</span>
-          <span class="lc-tag lc-tag-muted">FREE Aircond+Fridge</span>
+        <div class="pg-title">Redhill</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Double Storey
         </div>
-        <div class="lc-actions">
-          <a href="project-redhill.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20Redhill%2C%20Seri%20Alam.%20Boleh%20info?" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Tanya Razi</a>
+        <div class="pg-completion">Completion in 2028</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 619,000</span>
         </div>
       </div>
-    </div>
+    </a>
 
-    <!-- Premium Height Dato Onn -->
-    <div class="listing-card reveal r2" onclick="location.href='project-premium-height.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="premium-height-hero.jpg" alt="Premium Height Residence">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Bandar Dato Onn, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Premium <em>Height</em></div>
-        <div class="lc-dev">by MJK Group · Freehold · Kondominium · 3 Tower · 1,300 Unit</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">484–947</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">45</div><div class="lc-spec-label">Kemudahan</div></div>
+    <!-- Premium Height Residence -->
+    <a href="project-premium-height.html" class="pg-card reveal r3">
+      <div class="pg-img"><img src="premium-height-hero.jpg" alt="Premium Height Residence"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Bandar Dato Onn, Johor Bahru
         </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">Bandar Dato Onn</span>
-          <span class="lc-tag lc-tag-muted">Free Legal Fee</span>
+        <div class="pg-title">Premium Height Residence</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          1, 2, 3
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Condominium
         </div>
-        <div class="lc-actions">
-          <a href="project-premium-height.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20Premium%20Height%20Dato%20Onn.%20Boleh%20info?" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Tanya Razi
-          </a>
+        <div class="pg-completion">Completion in 2029</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 195,415</span>
         </div>
       </div>
-    </div>
-
-    <!-- Calia Residence -->
-    <div class="listing-card reveal r3" onclick="location.href='project-calia-residence.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="images/calia_residences.png" alt="Calia Residence Danga Bay">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Danga Bay, Johor Bahru City Centre</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Calia <em>Residence</em></div>
-        <div class="lc-dev">by PGB · Freehold · Serviced Apartment · 2 Tower · 1,274 Unit</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">453–984</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">27</div><div class="lc-spec-label">Kemudahan</div></div>
-        </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">Danga Bay</span>
-          <span class="lc-tag lc-tag-muted">Foreign RM400k</span>
-        </div>
-        <div class="lc-actions">
-          <a href="project-calia-residence.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20Calia%20Residence%20Danga%20Bay.%20Boleh%20info?" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Tanya Razi
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- M Grand Minori -->
-    <div class="listing-card reveal r4" onclick="location.href='m-grand-minori.html'" style="cursor:pointer;">
-      <div class="lc-img">
-        <img src="MGM_Apartment.jpg" alt="M Grand Minori Taman Pelangi">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Taman Pelangi, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">M Grand <em>Minori</em></div>
-        <div class="lc-dev">by Mah Sing Group · Freehold · Serviced Apartment · 2 Tower · 843 Unit</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">403–835</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">Studio–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">41</div><div class="lc-spec-label">Kemudahan</div></div>
-        </div>
-        <div class="lc-tags">
-          <span class="lc-tag lc-tag-gold">Freehold</span>
-          <span class="lc-tag lc-tag-muted">3km RTS</span>
-          <span class="lc-tag lc-tag-muted">GreenRE</span>
-        </div>
-        <div class="lc-actions">
-          <a href="m-grand-minori.html" class="lc-btn-primary" onclick="event.stopPropagation();">Full Details →</a>
-          <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20M%20Grand%20Minori%2C%20Taman%20Pelangi.%20Boleh%20info?" target="_blank" class="lc-btn-ghost" onclick="event.stopPropagation();">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Tanya Razi
-          </a>
-        </div>
-      </div>
-    </div>
+    </a>
 
   </div>
 
   <!-- MORE: link to full listing browse page -->
   <div style="margin-top:32px;text-align:center;">
     <a href="senarai-hartanah.html" class="btn-pill-gold" style="display:inline-flex;">
-      Lihat Semua / More →
+      More →
     </a>
   </div>
 
 </section>
 
 <!-- ABOUT RAZI -->
-<section class="s about-section">
+<section class="s about-section" id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal">
       <div class="about-img-box">
@@ -1083,15 +885,9 @@
       <div class="inq-form">
         <div class="inq-form-title">Borang Inquiry</div>
         <div class="inq-form-sub">Semua field wajib diisi · All fields required</div>
-        <div class="field-row">
-          <div class="field">
-            <label>Nama</label>
-            <input type="text" id="i-name" placeholder="Nama penuh anda">
-          </div>
-          <div class="field">
-            <label>No. WhatsApp</label>
-            <input type="tel" id="i-phone" placeholder="01X-XXXXXXXX">
-          </div>
+        <div class="field full">
+          <label>Nama</label>
+          <input type="text" id="i-name" placeholder="Nama penuh anda">
         </div>
         <div class="field full">
           <label>Jenis Urusan</label>
@@ -1105,18 +901,7 @@
           </select>
         </div>
         <div class="field full">
-          <label>Kawasan Minat</label>
-          <select id="i-area">
-            <option value="">-- Pilih --</option>
-            <option>JB City</option>
-            <option>Skudai / Nusajaya</option>
-            <option>Iskandar Puteri</option>
-            <option>Kulai / Senai</option>
-            <option>Lain-lain</option>
-          </select>
-        </div>
-        <div class="field full">
-          <label>Mesej (Optional)</label>
+          <label>Mesej</label>
           <textarea id="i-msg" placeholder="Cerita sikit apa yang anda cari..."></textarea>
         </div>
         <button class="btn-submit-pill" onclick="submitInquiry()">Hantar Inquiry →</button>
@@ -1151,16 +936,6 @@
         </a>
       </div>
     </div>
-    <div class="footer-links">
-      <a href="#listings">Listing</a>
-      <a href="#video-tour">Video Tour</a>
-      <a href="#inquiry">Inquiry</a>
-      <a href="project-straits-view-duo.html">The Straits View DUO</a>
-      <a href="project-allamanda.html">Allamanda Phase 6</a>
-      <a href="project-redhill.html">Redhill Seri Alam</a>
-      <a href="project-premium-height.html">Premium Height</a>
-      <a href="m-grand-minori.html">M Grand Minori</a>
-    </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">© <span id="copy-year"></span> Razi Property JB. All rights reserved.</div>
@@ -1189,17 +964,15 @@
 
   // Inquiry submit
   function submitInquiry() {
-    const name  = document.getElementById('i-name').value.trim();
-    const phone = document.getElementById('i-phone').value.trim();
-    const type  = document.getElementById('i-type').value;
-    const area  = document.getElementById('i-area').value;
-    const msg   = document.getElementById('i-msg').value.trim();
-    if (!name || !phone || !type || !area) {
-      alert('Sila isi semua field sebelum hantar.');
+    const name = document.getElementById('i-name').value.trim();
+    const type = document.getElementById('i-type').value;
+    const msg  = document.getElementById('i-msg').value.trim();
+    if (!name || !type) {
+      alert('Sila isi nama dan jenis urusan sebelum hantar.');
       return;
     }
     const waMsg = encodeURIComponent(
-      `Hi Razi! Saya isi borang inquiry.\n\nNama: ${name}\nNo. WA: ${phone}\nJenis: ${type}\nKawasan: ${area}\nMesej: ${msg || '-'}`
+      `Hi Razi! Saya isi borang inquiry.\n\nNama: ${name}\nJenis: ${type}\nMesej: ${msg || '-'}`
     );
     document.getElementById('i-success').style.display = 'block';
     setTimeout(() => window.open(`https://wa.me/601154065243?text=${waMsg}`, '_blank'), 800);

@@ -4,164 +4,157 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Senarai Hartanah — Razi Property JB</title>
-<meta name="description" content="Semua senarai projek baru & hartanah pilihan Razi di Johor Bahru. Filter mengikut kawasan. Hubungi 011-5406 5243.">
+<meta name="description" content="Semua senarai projek baru & hartanah pilihan Razi di Johor Bahru. Filter mengikut kawasan, tenure, bilik & tahun siap. Hubungi 011-5406 5243.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Senarai Hartanah — Razi Property JB">
-<meta property="og:description" content="Semua projek baru & hartanah pilihan di Johor Bahru. Ejen berdaftar OD Legacy Realty.">
+<meta property="og:description" content="Semua projek baru & hartanah pilihan di Johor Bahru.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --black: #0d1821;
+    --black: #0A0A0F;
     --white: #ffffff;
-    --ivory: #F8F5EF;
-    --ivory-dark: #f0ece3;
-    --gray-100: #ebebeb;
-    --gray-400: #a0a0a0;
-    --gray-600: #666;
     --blue: #1A3A5C;
     --blue-mid: #2B5C8A;
     --blue-light: #d6e6f5;
-    --yellow: #D4A843;
-    --yellow-light: #e8c97a;
-    --font-display: 'Inter', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --gray-100: #F2F4F7;
+    --gray-300: #E5E7EB;
+    --gray-400: #9CA3AF;
+    --gray-600: #6B7280;
+    --font: 'Inter', sans-serif;
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; font-size: 16px; }
   body {
-    font-family: var(--font-body);
-    background: var(--blue);
-    color: var(--white);
+    font-family: var(--font);
+    background: var(--white);
+    color: var(--black);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV (same as main site) ── */
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     padding: 0 5vw;
-    height: 56px;
+    height: 60px;
     display: flex; align-items: center; justify-content: space-between;
-    background: rgba(26,58,92,0.92);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-300);
   }
-  .nav-brand { display: flex; align-items: center; text-decoration: none; transition: opacity 0.2s; }
-  .nav-brand:hover { opacity: 0.85; }
+  .nav-brand { display: flex; align-items: center; text-decoration: none; }
   .nav-links { display: flex; align-items: center; gap: 28px; }
   .nav-links a {
-    font-size: 0.72rem; font-weight: 400;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none; letter-spacing: 0.08em;
-    text-transform: uppercase; transition: color 0.2s;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover { color: var(--blue); }
   .nav-cta {
-    font-size: 0.72rem; font-weight: 500;
-    color: var(--white); background: var(--yellow);
-    padding: 8px 18px; border-radius: 100px;
-    text-decoration: none; letter-spacing: 0.06em;
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--white); background: var(--blue);
+    padding: 10px 20px; border-radius: 8px;
+    text-decoration: none;
     transition: all 0.2s;
   }
-  .nav-cta:hover { background: var(--yellow-light); color: var(--blue); transform: scale(1.03); }
+  .nav-cta:hover { background: var(--blue-mid); }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 200; position: relative; background: none; border: none; -webkit-tap-highlight-color: transparent; }
-  .nav-hamburger span { width: 22px; height: 2px; background: var(--white); display: block; transition: all 0.3s; border-radius: 2px; }
+  .nav-hamburger span { width: 22px; height: 2px; background: var(--black); display: block; transition: all 0.3s; border-radius: 2px; }
 
   .mobile-nav {
     display: none;
-    position: fixed; top: 56px; left: 0; right: 0; z-index: 1001;
-    background: var(--blue);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: fixed; top: 60px; left: 0; right: 0; z-index: 1001;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-300);
     flex-direction: column; padding: 8px 0 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
   .mobile-nav.open { display: flex; }
   .mobile-nav a {
-    padding: 16px 6vw; font-size: 0.95rem; font-weight: 400;
-    color: rgba(255,255,255,0.85); text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    letter-spacing: 0.04em; transition: all 0.15s;
+    padding: 16px 6vw; font-size: 0.95rem; font-weight: 500;
+    color: var(--black); text-decoration: none;
+    border-bottom: 1px solid var(--gray-100);
   }
   .mobile-nav a:last-child { border-bottom: none; }
-  .mobile-nav a:active { background: rgba(255,255,255,0.1); color: var(--white); }
+  .mobile-nav a:active { background: var(--gray-100); color: var(--blue); }
 
-  /* ── FILTER PILLS (category bar, browse-shop style) ── */
+  /* ── FILTER BAR (scrollable pills, kawasan only) ── */
   .filter-bar {
-    padding: 24px 5vw;
-    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 88px 5vw 20px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--gray-300);
+    background: var(--gray-100);
+    overflow-x: auto; flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .filter-bar::-webkit-scrollbar { display: none; }
   .filter-bar-top { padding-top: 88px; }
   .filter-label {
-    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase; color: rgba(255,255,255,0.35);
-    margin-right: 6px;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-600);
+    margin-right: 4px; flex-shrink: 0;
   }
   .filter-pill {
-    padding: 9px 20px; border-radius: 100px; border: 1px solid rgba(255,255,255,0.15);
-    background: transparent; color: rgba(255,255,255,0.6);
-    font-family: var(--font-body); font-size: 0.76rem; font-weight: 400;
-    cursor: pointer; transition: all 0.25s; letter-spacing: 0.02em;
+    flex-shrink: 0; white-space: nowrap;
+    padding: 10px 18px; border-radius: 100px; border: 1px solid var(--gray-300);
+    background: var(--white); color: var(--black);
+    font-family: var(--font); font-size: 0.8rem; font-weight: 500;
+    cursor: pointer; transition: all 0.2s;
   }
-  .filter-pill:hover { border-color: var(--yellow); color: var(--yellow); }
-  .filter-pill.active { background: var(--yellow); border-color: var(--yellow); color: var(--blue); font-weight: 500; }
+  .filter-pill:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-pill.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
 
-  /* ── GRID (browse-shop product-grid style) ── */
-  .browse-grid-wrap { padding: 48px 5vw 100px; }
+  /* ── GRID (PropertyGuru-style cards) ── */
+  .browse-grid-wrap { padding: 20px 5vw 100px; }
   .browse-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
   }
-  .listing-card {
-    border-radius: 16px; overflow: hidden;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  .pg-card {
+    background: var(--white); border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--gray-300);
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
     text-decoration: none; color: inherit; display: block;
   }
-  .listing-card:hover { transform: translateY(-6px); border-color: rgba(255,255,255,0.16); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
-  .lc-img { height: 220px; overflow: hidden; position: relative; background: var(--blue); }
-  .lc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.85; }
-  .listing-card:hover .lc-img img { transform: scale(1.04); }
-  .lc-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%); }
-  .lc-location {
-    position: absolute; bottom: 14px; left: 16px;
-    font-size: 0.6rem; color: rgba(255,255,255,0.6); letter-spacing: 0.1em; text-transform: uppercase;
+  .pg-card:hover { transform: translateY(-6px); box-shadow: 0 20px 44px rgba(10,10,15,0.14); border-color: var(--blue); }
+  .pg-img { height: 200px; overflow: hidden; position: relative; background: var(--blue-light); }
+  .pg-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .pg-card:hover .pg-img img { transform: scale(1.05); }
+  .pg-body { padding: 18px 20px 20px; }
+  .pg-loc { display: flex; align-items: center; gap: 6px; font-size: 0.76rem; color: var(--gray-600); margin-bottom: 10px; }
+  .pg-loc svg { width: 13px; height: 13px; flex-shrink: 0; fill: var(--blue); }
+  .pg-title { font-size: 1.08rem; font-weight: 700; color: var(--black); line-height: 1.3; margin-bottom: 12px; }
+  .pg-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 0.76rem; color: var(--gray-600); margin-bottom: 8px; }
+  .pg-meta svg { width: 12px; height: 12px; fill: var(--gray-600); vertical-align: -1px; margin-right: 2px; }
+  .pg-meta .sep { color: var(--gray-300); }
+  .pg-completion { font-size: 0.76rem; color: var(--gray-600); margin-bottom: 16px; }
+  .pg-price-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 14px; border-top: 1px solid var(--gray-100);
   }
-  .lc-body { padding: 22px 22px 20px; }
-  .lc-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 6px; }
-  .lc-title em { font-style: italic; color: var(--yellow-light); }
-  .lc-dev { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-bottom: 16px; line-height: 1.5; }
-  .lc-specs { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
-  .lc-spec { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 10px 6px; text-align: center; }
-  .lc-spec-val { font-size: 0.82rem; font-weight: 500; color: var(--white); line-height: 1; }
-  .lc-spec-val.gold { color: var(--yellow-light); font-family: var(--font-display); font-size: 0.92rem; }
-  .lc-spec-label { font-size: 0.55rem; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 3px; }
-  .lc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
-  .lc-tag { font-size: 0.58rem; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.04em; }
-  .lc-tag-gold { border: 1px solid var(--yellow); color: var(--yellow); }
-  .lc-cta { display: flex; align-items: center; gap: 6px; font-size: 0.74rem; color: var(--yellow); letter-spacing: 0.03em; }
+  .pg-price-label { font-size: 0.68rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em; }
+  .pg-price-val { font-size: 1rem; font-weight: 700; color: var(--blue); }
 
   .no-results {
     display: none; text-align: center; padding: 80px 5vw;
     grid-column: 1 / -1;
   }
-  .no-results h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-  .no-results p { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+  .no-results h3 { font-size: 1.3rem; font-weight: 700; color: var(--black); margin-bottom: 10px; }
+  .no-results p { font-size: 0.85rem; color: var(--gray-600); }
 
-  /* ── FOOTER (same as main site) ── */
-  footer { background: #0d2137; padding: 48px 5vw 36px; border-top: 1px solid rgba(255,255,255,0.08); }
+  /* ── FOOTER ── */
+  footer { background: var(--black); padding: 48px 5vw 36px; }
   .footer-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; margin-bottom: 40px; }
-  .footer-brand-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-  .footer-brand-sub { font-size: 0.65rem; color: rgba(255,255,255,0.25); letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-brand-name { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .footer-brand-sub { font-size: 0.68rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; text-transform: uppercase; }
   .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-  .footer-links a { font-size: 0.72rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; letter-spacing: 0.04em; }
+  .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--white); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
-  .footer-wa { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); font-size: 0.72rem; padding: 8px 16px; border-radius: 100px; text-decoration: none; transition: all 0.2s; }
-  .footer-wa:hover { background: var(--yellow); border-color: var(--yellow); color: var(--blue); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+  .footer-wa { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: var(--white); font-size: 0.78rem; font-weight: 600; padding: 10px 18px; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+  .footer-wa:hover { background: var(--blue-mid); }
   .footer-wa svg { width: 13px; height: 13px; fill: currentColor; }
 
   /* ── RESPONSIVE ── */
@@ -173,17 +166,10 @@
     .nav-hamburger { display: flex; }
     .nav-cta { display: none; }
     nav { padding: 0 6vw; }
-    .filter-bar { padding: 20px 6vw; }
-    .filter-bar-top { padding-top: 76px; }
-    .filter-label { width: 100%; margin-bottom: 4px; }
-    .browse-grid-wrap { padding: 32px 6vw 80px; }
-    .browse-grid {
-      grid-template-columns: 1fr; gap: 0;
-      margin: 0 -6vw; width: calc(100% + 12vw);
-    }
-    .listing-card { border-radius: 0; border-left: none; border-right: none; }
-    .lc-img { height: 260px; }
-    .lc-body { padding: 22px 6vw 20px; }
+    .filter-bar { padding: 76px 6vw 16px; }
+    .browse-grid-wrap { padding: 16px 6vw 80px; }
+    .browse-grid { grid-template-columns: 1fr; gap: 16px; }
+    .pg-img { height: 220px; }
     .footer-top { flex-direction: column; gap: 24px; }
   }
 </style>
@@ -192,14 +178,13 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="index.html" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:40px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3));"></a>
+  <a href="index.html" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:36px;width:auto;display:block;"></a>
   <div class="nav-links">
-    <a href="index.html#listings">Listing</a>
+    <a href="index.html">Home</a>
+    <a href="senarai-hartanah.html">Listing</a>
     <a href="index.html#video-tour">Video Tour</a>
-    <a href="index.html#inquiry">Inquiry</a>
-    <a href="https://wa.me/601154065243" target="_blank">WhatsApp</a>
+    <a href="index.html#about">About Me</a>
   </div>
-  <a href="index.html#inquiry" class="nav-cta">Hubungi Saya</a>
   <div class="nav-hamburger" onclick="toggleMenu()" id="hamburger">
     <span></span><span></span><span></span>
   </div>
@@ -207,18 +192,20 @@
 
 <!-- MOBILE NAV DRAWER -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html#listings" onclick="toggleMenu()">Listing</a>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="senarai-hartanah.html" onclick="toggleMenu()">Listing</a>
   <a href="index.html#video-tour" onclick="toggleMenu()">Video Tour</a>
-  <a href="index.html#inquiry" onclick="toggleMenu()">Inquiry</a>
-  <a href="https://wa.me/601154065243" target="_blank" onclick="toggleMenu()">WhatsApp</a>
+  <a href="index.html#about" onclick="toggleMenu()">About Me</a>
 </div>
 
 <!-- FILTER BAR -->
 <div class="filter-bar filter-bar-top">
   <span class="filter-label">Kawasan</span>
   <button class="filter-pill active" data-filter="all" onclick="filterListings('all', this)">Semua</button>
-  <button class="filter-pill" data-filter="jb-city" onclick="filterListings('jb-city', this)">JB City</button>
-  <button class="filter-pill" data-filter="pasir-gudang" onclick="filterListings('pasir-gudang', this)">Pasir Gudang / Masai</button>
+  <button class="filter-pill" data-filter="johor-bahru" onclick="filterListings('johor-bahru', this)">Johor Bahru</button>
+  <button class="filter-pill" data-filter="permas-jaya" onclick="filterListings('permas-jaya', this)">Permas Jaya</button>
+  <button class="filter-pill" data-filter="pasir-gudang" onclick="filterListings('pasir-gudang', this)">Pasir Gudang</button>
+  <button class="filter-pill" data-filter="masai" onclick="filterListings('masai', this)">Masai</button>
   <button class="filter-pill" data-filter="skudai" onclick="filterListings('skudai', this)">Skudai / Nusajaya</button>
   <button class="filter-pill" data-filter="iskandar-puteri" onclick="filterListings('iskandar-puteri', this)">Iskandar Puteri</button>
   <button class="filter-pill" data-filter="kulai" onclick="filterListings('kulai', this)">Kulai / Senai</button>
@@ -228,142 +215,163 @@
 <div class="browse-grid-wrap">
   <div class="browse-grid" id="browseGrid">
 
-    <a href="project-straits-view-duo.html" class="listing-card" data-area="jb-city">
-      <div class="lc-img">
-        <img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Permas Jaya, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">The Straits View <em>DUO</em></div>
-        <div class="lc-dev">by BRDB Developments · Freehold · 33 Tingkat</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM398K</div><div class="lc-spec-label">Dari</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">645–1,529</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">8 min</div><div class="lc-spec-label">CIQ/RTS</div></div>
+    <a href="project-straits-view-duo.html" class="pg-card" data-area="permas-jaya" data-type="Service Apartment" data-bed="1,3,4" data-year="2029" data-tenure="Freehold">
+      <div class="pg-img"><img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Permas Jaya, Johor Bahru
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">The Straits View DUO</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          1, 3, 4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Service Apartment
+        </div>
+        <div class="pg-completion">Completion in 2029</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 398,000</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-allamanda.html" class="listing-card" data-area="pasir-gudang">
-      <div class="lc-img">
-        <img src="allamanda-hero.jpg" alt="Allamanda Phase 6">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Meridin East, Pasir Gudang</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Allamanda <em>Phase 6</em></div>
-        <div class="lc-dev">by Mah Sing Group · Freehold · Double Storey</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM491K</div><div class="lc-spec-label">Dari</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1,676</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+    <a href="project-allamanda.html" class="pg-card" data-area="pasir-gudang" data-type="Double Storey" data-bed="4" data-year="2026" data-tenure="Freehold">
+      <div class="pg-img"><img src="allamanda-hero.jpg" alt="Allamanda Phase 6"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Meridin East, Pasir Gudang
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">Allamanda Phase 6</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Double Storey
+        </div>
+        <div class="pg-completion">Completion in 2026</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 491,000</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-redhill.html" class="listing-card" data-area="pasir-gudang">
-      <div class="lc-img">
-        <img src="redhill-hero.jpg" alt="Redhill Seri Alam">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Seri Alam, Masai, JB</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Red<em>hill</em></div>
-        <div class="lc-dev">by Alam Height · Freehold · Double Storey</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM619K</div><div class="lc-spec-label">Nett</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1,951</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+    <a href="project-redhill.html" class="pg-card" data-area="masai" data-type="Double Storey" data-bed="4" data-year="2028" data-tenure="Freehold">
+      <div class="pg-img"><img src="redhill-hero.jpg" alt="Redhill Seri Alam"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Seri Alam, Masai, JB
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">Redhill</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Double Storey
+        </div>
+        <div class="pg-completion">Completion in 2028</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 619,000</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-fringe.html" class="listing-card" data-area="pasir-gudang">
-      <div class="lc-img">
-        <img src="fringe-hero.jpg" alt="The Fringe Seri Alam">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Seri Alam, Masai, JB</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">The <em>Fringe</em></div>
-        <div class="lc-dev">by Alam Height · Freehold · Double Storey</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">RM592K</div><div class="lc-spec-label">Dari</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1,951</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">4+3</div><div class="lc-spec-label">BR+Bath</div></div>
+    <a href="project-fringe.html" class="pg-card" data-area="masai" data-type="Double Storey" data-bed="4" data-year="2027" data-tenure="Freehold">
+      <div class="pg-img"><img src="fringe-hero.jpg" alt="The Fringe Seri Alam"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Seri Alam, Masai, JB
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">The Fringe</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          4
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Double Storey
+        </div>
+        <div class="pg-completion">Completion in 2027</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 591,600</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-premium-height.html" class="listing-card" data-area="jb-city">
-      <div class="lc-img">
-        <img src="premium-height-hero.jpg" alt="Premium Height Residence">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Bandar Dato Onn, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Premium <em>Height</em></div>
-        <div class="lc-dev">by MJK Group · Freehold · Kondominium</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">484–947</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">45</div><div class="lc-spec-label">Kemudahan</div></div>
+    <a href="project-premium-height.html" class="pg-card" data-area="johor-bahru" data-type="Condominium" data-bed="1,2,3" data-year="2029" data-tenure="Freehold">
+      <div class="pg-img"><img src="premium-height-hero.jpg" alt="Premium Height Residence"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Bandar Dato Onn, Johor Bahru
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">Premium Height Residence</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          1, 2, 3
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Condominium
+        </div>
+        <div class="pg-completion">Completion in 2029</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 195,415</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-calia-residence.html" class="listing-card" data-area="jb-city">
-      <div class="lc-img">
-        <img src="images/calia_residences.png" alt="Calia Residence Danga Bay">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Danga Bay, Johor Bahru City Centre</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">Calia <em>Residence</em></div>
-        <div class="lc-dev">by PGB · Freehold · Serviced Apartment</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">453–984</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">1–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">27</div><div class="lc-spec-label">Kemudahan</div></div>
+    <a href="project-calia-residence.html" class="pg-card" data-area="johor-bahru" data-type="Service Apartment" data-bed="1,2,3" data-year="2029" data-tenure="Freehold">
+      <div class="pg-img"><img src="images/calia_residences.png" alt="Calia Residence Danga Bay"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Danga Bay, Johor Bahru City Centre
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">Calia Residence</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          1, 2, 3
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Service Apartment
+        </div>
+        <div class="pg-completion">Completion in 2029</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">RM 400,000</span>
+        </div>
       </div>
     </a>
 
-    <a href="project-m-grand-minori.html" class="listing-card" data-area="jb-city">
-      <div class="lc-img">
-        <img src="MGM_Apartment.jpg" alt="M Grand Minori Taman Pelangi">
-        <div class="lc-img-overlay"></div>
-        <div class="lc-location">Taman Pelangi, Johor Bahru</div>
-      </div>
-      <div class="lc-body">
-        <div class="lc-title">M Grand <em>Minori</em></div>
-        <div class="lc-dev">by Mah Sing Group · Freehold · Serviced Apartment</div>
-        <div class="lc-specs">
-          <div class="lc-spec"><div class="lc-spec-val gold">403–835</div><div class="lc-spec-label">sq.ft</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">Studio–3</div><div class="lc-spec-label">Bilik</div></div>
-          <div class="lc-spec"><div class="lc-spec-val">41</div><div class="lc-spec-label">Kemudahan</div></div>
+    <a href="project-m-grand-minori.html" class="pg-card" data-area="johor-bahru" data-type="Service Apartment" data-bed="1,2,3" data-year="2030" data-tenure="Freehold">
+      <div class="pg-img"><img src="MGM_Apartment.jpg" alt="M Grand Minori Taman Pelangi"></div>
+      <div class="pg-body">
+        <div class="pg-loc">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Taman Pelangi, Johor Bahru
         </div>
-        <div class="lc-tags"><span class="lc-tag lc-tag-gold">Freehold</span></div>
-        <div class="lc-cta">Full Details →</div>
+        <div class="pg-title">M Grand Minori</div>
+        <div class="pg-meta">
+          <svg viewBox="0 0 24 24"><path d="M21 10.78V8c0-1.65-1.35-3-3-3H9c-.35 0-.68.07-1 .18V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v13h2v-3h16v3h2v-7c0-.65-.34-1.22-.85-1.55V10.78zM9 7h9c.55 0 1 .45 1 1v3H8V8c0-.55.45-1 1-1zM5 8h2v3H5V8z"/></svg>
+          Studio–3
+          <span class="sep">|</span> Freehold
+          <span class="sep">|</span> Service Apartment
+        </div>
+        <div class="pg-completion">Completion in 2030</div>
+        <div class="pg-price-row">
+          <span class="pg-price-label">Starting From</span>
+          <span class="pg-price-val">Price on Ask</span>
+        </div>
       </div>
     </a>
 
     <div class="no-results" id="noResults">
       <h3>Tiada listing dijumpai</h3>
-      <p>Belum ada projek di kawasan ini buat masa sekarang. WhatsApp Razi untuk tanya update terkini.</p>
+      <p>Belum ada projek yang sepadan dengan filter ini. WhatsApp Razi untuk tanya update terkini.</p>
     </div>
 
   </div>
@@ -374,7 +382,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Razi Property JB</div>
-      <div class="footer-brand-sub">One Dream Legacy · REN Berdaftar · Johor Bahru</div>
+      <div class="footer-brand-sub">Johor Bahru</div>
     </div>
     <div class="footer-links">
       <a href="index.html#listings">Listing</a>
@@ -416,8 +424,9 @@
     document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
 
-    const cards = document.querySelectorAll('.listing-card');
+    const cards = document.querySelectorAll('.pg-card');
     let visibleCount = 0;
+
     cards.forEach(card => {
       const match = area === 'all' || card.dataset.area === area;
       card.style.display = match ? 'block' : 'none';
@@ -426,6 +435,18 @@
 
     document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
   }
+
+  // Only show kawasan pills that actually have listings; auto-appears once a project exists there
+  document.addEventListener('DOMContentLoaded', () => {
+    const availableAreas = new Set();
+    document.querySelectorAll('.pg-card').forEach(c => availableAreas.add(c.dataset.area));
+    document.querySelectorAll('.filter-pill').forEach(p => {
+      const f = p.dataset.filter;
+      if (f !== 'all' && !availableAreas.has(f)) {
+        p.style.display = 'none';
+      }
+    });
+  });
 </script>
 </body>
 </html>

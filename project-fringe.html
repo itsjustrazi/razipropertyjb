@@ -69,7 +69,7 @@
   /* SECTIONS */
   .section { padding: 88px 8vw; }
   .section-label { font-size: 0.7rem; font-weight: 500; color: var(--yellow); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .section-label::before { content: ''; width: 20px; height: 1.5px; background: var(--yellow); display: block; }
+  .section-label::before { display: none; }
   .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 500; color: var(--blue); line-height: 1.2; margin-bottom: 14px; }
   .section-desc { font-size: 0.92rem; line-height: 1.8; color: var(--gray-500); max-width: 580px; }
 
@@ -195,12 +195,14 @@
     .units-grid { grid-template-columns: 1fr; }
   }
 </style>
+  <link rel="stylesheet" href="project-product-layout.css">
+  <script src="project-product-layout.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-back">
+  <a href="index.html" class="nav-back">
     <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
     Kembali ke Laman Utama
   </a>
@@ -245,10 +247,6 @@
         <div class="fact-row"><span class="fact-label">Pemaju</span><span class="fact-value">Alam Height</span></div>
         <div class="fact-row"><span class="fact-label">Keluasan Tanah</span><span class="fact-value">20' × 70'</span></div>
         <div class="fact-row"><span class="fact-label">Siap</span><span class="fact-value">Q2 2027</span></div>
-        <div class="badge-live">
-          <div class="badge-dot"></div>
-          <div class="badge-live-text"><strong>Kini Dijual!</strong> 146 unit · Stok terhad.</div>
-        </div>
       </div>
     </div>
   </div>
@@ -258,7 +256,6 @@
 <section class="section">
   <div class="section-label">Tentang Projek · Overview</div>
   <h2 class="section-title fade-in">The Fringe.<br>Eksklusif. Freehold. 20'×70'.</h2>
-  <p class="section-desc fade-in">The Fringe di Seri Alam, Masai — double storey terrace freehold 20'×70' dengan rekabentuk moden, keselamatan 24 jam, dan lokasi strategik berdekatan kemudahan Masai.</p>
   <div class="overview-grid">
     <table class="spec-table fade-in">
       <tr><td>Pemaju</td><td>Alam Height</td></tr>
@@ -316,14 +313,13 @@
 <section class="section unit-section" id="units">
   <div class="section-label">Pilihan Unit · Unit Types</div>
   <h2 class="section-title fade-in">Pilihan Unit.<br>Direka Untuk Keluarga.</h2>
-  <p class="section-desc fade-in">Double storey terrace freehold 20'×70' — 1,951 sq.ft, 4 bilik tidur, 3 bilik mandi. Intermediate, End Lot & Corner tersedia.</p>
   <div class="units-grid">
 
     <!-- Intermediate -->
     <div class="unit-card fade-in">
-      <div class="unit-header">
+      <div class="unit-header" style="background:var(--white) !important;border-bottom:1px solid var(--gray-300);">
         <div class="unit-type">Intermediate Lot</div>
-        <div class="unit-subtype">Bumi: RM591,600 · Non-Bumi: —</div>
+        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM591,600 · Non-Bumi: —</div>
       </div>
       <div class="unit-body">
         <div class="unit-specs">
@@ -346,9 +342,9 @@
 
     <!-- End Lot -->
     <div class="unit-card fade-in">
-      <div class="unit-header" style="background:var(--blue-mid);">
+      <div class="unit-header" style="background:var(--white) !important;border-bottom:1px solid var(--gray-300);">
         <div class="unit-type">End Lot</div>
-        <div class="unit-subtype">Bumi: RM628,575 · Non-Bumi: RM754,200</div>
+        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM628,575 · Non-Bumi: RM754,200</div>
       </div>
       <div class="unit-body">
         <div class="unit-specs">
@@ -369,38 +365,6 @@
       </div>
     </div>
 
-    <!-- INVESTMENT HIGHLIGHT -->
-    <div class="unit-card fade-in" style="background:var(--blue);border-color:var(--blue);">
-      <div class="unit-header" style="background:rgba(255,255,255,0.1);">
-        <div class="unit-type" style="color:var(--yellow);">Kenapa Beli?</div>
-        <div class="unit-subtype" style="color:rgba(255,255,255,0.5);">Investment Highlights</div>
-      </div>
-      <div class="unit-body">
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
-          <li style="display:flex;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
-            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">✓</span>
-            Freehold — nilai meningkat jangka panjang
-          </li>
-          <li style="display:flex;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
-            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">✓</span>
-            Berdekatan kawasan industri Pasir Gudang — permintaan sewa tinggi
-          </li>
-          <li style="display:flex;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
-            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">✓</span>
-            Township matang — sekolah, hospital, mall semua dekat
-          </li>
-          <li style="display:flex;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
-            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">✓</span>
-            Phase-phase sebelum habis terjual — permintaan tinggi
-          </li>
-          <li style="display:flex;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.7);">
-            <span style="color:var(--yellow);font-weight:700;flex-shrink:0;">✓</span>
-            Mah Sing — pemaju berpengalaman & dipercayai
-          </li>
-        </ul>
-        <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20nak%20tahu%20lebih%20lanjut%20pasal%20The%20Fringe%2C%20Seri%20Alam%20sebagai%20pelaburan." class="btn-unit" style="background:var(--yellow);color:var(--blue);" target="_blank">Konsultasi Pelaburan Percuma →</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -408,7 +372,6 @@
 <section class="section">
   <div class="section-label">Kemudahan · Township Facilities</div>
   <h2 class="section-title fade-in">Hidup Lebih.<br>Di Meridin East.</h2>
-  <p class="section-desc fade-in">Kemudahan lengkap dalam kawasan township 1,313 ekar — semua ada untuk keluarga Razi.</p>
   <div class="fac-grid">
     <div class="fac-card fade-in"><div class="fac-icon">🌳</div><div class="fac-name">Garden & Taman</div></div>
     <div class="fac-card fade-in"><div class="fac-icon">🧒</div><div class="fac-name">Children Playground</div></div>
@@ -423,21 +386,12 @@
 
 <!-- LOCATION -->
 <section class="section location-section">
-  <div class="section-label">Lokasi · Location</div>
-  <h2 class="section-title fade-in">Seri Alam, Masai.<br>Semua Di Hujung Jari.</h2>
-  <p class="section-desc fade-in">Berdekatan semua kemudahan utama di Masai & Pasir Gudang — sekolah, hospital, mall dan lebih banyak lagi.</p>
-  <div class="location-grid">
+  <div class="section-label">Lokasi · Aksesibiliti</div>
+  <h2 class="section-title fade-in">Seri Alam, <em>Masai, Johor</em></h2>
+  <div class="location-grid" style="grid-template-columns:1fr;margin-top:0;">
     <div class="fade-in" style="border-radius:8px;overflow:hidden;aspect-ratio:4/3;">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.4!2d103.931!3d1.524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1bca6bdba7b7%3A0x1b5e7e3a4f5d6c8d!2sMeridin%20East%20Sales%20Gallery!5e0!3m2!1sen!2smy!4v1" width="100%" height="100%" style="border:0;display:block;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-    <ul class="conn-list fade-in">
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>KipMall & Today Mall</strong></div></li>
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>Regency Specialist Hospital & KPJ</strong></div></li>
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>Repton International School</strong></div></li>
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>Pasar Borong Masai & Lotus's</strong></div></li>
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>Stadium Bandaraya Pasir Gudang</strong></div></li>
-      <li class="conn-item"><div class="conn-time">Dekat</div><div class="conn-label"><strong>UTC Pasir Gudang</strong></div></li>
-    </ul>
   </div>
 </section>
 
@@ -447,14 +401,12 @@
     <div>
       <div class="section-label">Daftar Minat · Expression of Interest</div>
       <h2 class="section-title fade-in">Jangan Lepaskan<br>The Fringe!</h2>
-      <p class="section-desc fade-in">Hanya 146 unit sahaja. Daftar sekarang untuk dapatkan harga terkini, layout, dan pakej jualan eksklusif terus dari Razi.</p>
       <ul class="sell-pts fade-in">
         <li>Freehold 20'×70' — nilai pelaburan jangka panjang</li>
         <li>1-Tier Security, CCTV & 24-jam Guard House</li>
         <li>FREE Legal Fee SPA + Loan Agreement</li>
         <li>FREE Stamp Duty — jimat lebih banyak</li>
         <li>Rumah contoh disediakan — boleh lawat terus</li>
-        <li>Hanya 146 unit — stok sangat terhad</li>
       </ul>
     </div>
     <div>
