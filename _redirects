@@ -1,0 +1,38 @@
+# Razi Property JB — Netlify _redirects
+# Hides ".html" from every page URL.
+#
+# How it works (2 rules per page):
+#   1) If someone visits /page.html directly, force-redirect (301) to /page
+#      so the browser address bar updates and drops ".html".
+#   2) When /page is requested, silently serve /page.html (200 rewrite)
+#      without changing what's shown in the address bar.
+
+# Home
+/index.html                       /                                  301!
+/                                  /index.html                        200
+
+# Listing (browse all page)
+/senarai-hartanah.html             /senarai-hartanah                  301!
+/senarai-hartanah                  /senarai-hartanah.html             200
+
+# Project pages
+/project-fringe.html               /project-fringe                    301!
+/project-fringe                    /project-fringe.html               200
+
+/project-redhill.html              /project-redhill                   301!
+/project-redhill                   /project-redhill.html              200
+
+/project-straits-view-duo.html     /project-straits-view-duo          301!
+/project-straits-view-duo          /project-straits-view-duo.html     200
+
+/project-allamanda.html            /project-allamanda                 301!
+/project-allamanda                 /project-allamanda.html            200
+
+/project-premium-height.html       /project-premium-height            301!
+/project-premium-height            /project-premium-height.html       200
+
+/project-calia-residence.html      /project-calia-residence           301!
+/project-calia-residence           /project-calia-residence.html      200
+
+/project-m-grand-minori.html       /project-m-grand-minori            301!
+/project-m-grand-minori            /project-m-grand-minori.html       200
