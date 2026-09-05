@@ -46,7 +46,8 @@
   };
 
   function getCurrentProjectFileName() {
-    const pageName = window.location.pathname.split('/').pop().toLowerCase();
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const pageName = (pathParts.at(-1) || 'index').toLowerCase();
     return pageName.endsWith('.html') ? pageName : `${pageName}.html`;
   }
 

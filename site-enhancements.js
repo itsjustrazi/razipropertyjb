@@ -28,7 +28,7 @@
       if (target.origin !== window.location.origin || !target.pathname.endsWith('.html')) return;
       target.pathname = target.pathname === '/index.html'
         ? '/'
-        : target.pathname.replace(/\.html$/, '');
+        : target.pathname.replace(/\.html$/, '/');
       link.setAttribute('href', `${target.pathname}${target.search}${target.hash}`);
     });
   }
