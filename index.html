@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Razi Property JB</title>
+<title>Razi Property JB | Hartanah di Johor Bahru</title>
 <meta name="description" content="Razi — Ejen Hartanah Berdaftar JB. Projek baru freehold, subsale, dan pelaburan di Johor Bahru. Hubungi 011-5406 5243.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Razi Property JB — Fast & Easy JB Property">
@@ -56,11 +56,13 @@
   }
   .nav-brand {
     display: flex; align-items: center;
-    text-decoration: none; transition: opacity 0.2s;
+    position: absolute; left: 50%; transform: translateX(-50%);
+    z-index: 2; text-decoration: none; transition: opacity 0.2s;
   }
+  .nav-brand img { max-width: min(42vw, 230px); object-fit: contain; }
   .nav-brand:hover { opacity: 0.85; }
   .nav-links {
-    display: flex; align-items: center; gap: 28px;
+    display: flex; align-items: center; gap: 28px; margin-left: auto;
   }
   .nav-links a {
     font-size: 0.72rem; font-weight: 500;
@@ -69,13 +71,13 @@
     text-transform: uppercase; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--blue); }
-  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 200; position: relative; background: none; border: none; -webkit-tap-highlight-color: transparent; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; margin-left: auto; cursor: pointer; padding: 8px; z-index: 200; position: relative; background: none; border: none; -webkit-tap-highlight-color: transparent; }
   .nav-hamburger span { width: 22px; height: 2px; background: var(--black); display: block; transition: all 0.3s; border-radius: 2px; }
 
   /* ── HERO ── */
   .hero {
-    position: relative; width: 100%; height: 100vh;
-    min-height: 640px;
+    position: relative; width: 100%; height: min(86svh, 780px);
+    min-height: 560px;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     overflow: hidden; background: var(--white);
@@ -104,7 +106,7 @@
   .hero-sub {
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     font-weight: 300; color: var(--gray-600);
-    line-height: 1.7; max-width: 520px; margin: 0 auto 40px;
+    line-height: 1.65; max-width: 520px; margin: 0 auto 30px;
     opacity: 0; animation: fadeUp 0.9s 0.7s ease forwards;
   }
   .hero-actions {
@@ -152,7 +154,7 @@
 
   /* ── STATS STRIP ── */
   .stats-strip {
-    background: var(--blue); padding: 40px 5vw;
+    background: var(--blue); padding: 30px 5vw;
     display: flex; justify-content: center; gap: 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
@@ -173,7 +175,7 @@
   }
 
   /* ── SECTION COMMONS ── */
-  .s { padding: 120px 5vw; }
+  .s { padding: 84px 5vw; }
   .s-center { text-align: center; }
   .s-eyebrow {
     font-size: 0.65rem; font-weight: 500;
@@ -200,12 +202,12 @@
   .services-section { background: var(--ivory); }
   .services-grid {
     display: grid; grid-template-columns: repeat(2,1fr); gap: 1px;
-    background: var(--gray-100); margin-top: 64px;
+    background: var(--gray-100); margin-top: 40px;
     border-radius: 16px; overflow: hidden;
   }
   .svc-card { min-height: 140px; }
   .svc-card {
-    background: var(--white); padding: 40px 32px;
+    background: var(--white); padding: 28px 26px;
     transition: background 0.3s;
     position: relative; overflow: hidden;
   }
@@ -276,7 +278,7 @@
   /* ── INQUIRY ── */
   .inquiry-section { background: var(--ivory); }
   .inquiry-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
     max-width: 1100px; margin: 0 auto;
   }
   .inq-left {}
@@ -291,7 +293,7 @@
 
   .inq-form {
     background: var(--ivory); border-radius: 20px;
-    padding: 44px; display: flex; flex-direction: column; gap: 16px;
+    padding: 32px; display: flex; flex-direction: column; gap: 14px;
   }
   .inq-form-title {
     font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
@@ -366,7 +368,7 @@
 
   /* ── ABOUT RAZI ── */
   .about-section { background: var(--white); }
-  .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: center; max-width: 960px; margin: 0 auto; }
+  .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 42px; align-items: center; max-width: 960px; margin: 0 auto; }
   .about-img-wrap { position: relative; width: 220px; }
   .about-img-box {
     aspect-ratio: 2/3; border-radius: 14px; overflow: hidden;
@@ -421,7 +423,7 @@
   .video-section .s-title { color: var(--blue); }
   .video-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    margin-top: 48px;
+    margin-top: 36px;
   }
   .video-card {
     border-radius: 12px; overflow: hidden;
@@ -469,7 +471,7 @@
   .video-cta svg { width: 12px; height: 12px; fill: var(--blue); }
   .video-channel-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    margin-top: 40px;
+    margin-top: 30px;
     background: #FF0000; color: #fff;
     font-family: var(--font-body); font-size: 0.82rem; font-weight: 500;
     padding: 13px 24px; border-radius: 100px;
@@ -528,22 +530,23 @@
     .hero-actions { flex-direction: column; width: 100%; gap: 10px; }
     .btn-pill-gold, .btn-pill-outline { width: 100%; justify-content: center; }
 
-    .s { padding: 72px 6vw; }
+    .hero { height: min(78svh, 680px); min-height: 530px; }
+    .s { padding: 52px 6vw; }
     .s-title { font-size: clamp(2rem, 9vw, 2.8rem); }
     .stats-strip { gap: 0; flex-wrap: wrap; }
     .stat-item { min-width: 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 20px; }
     .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
     .field-row { grid-template-columns: 1fr; }
-    .inq-form { padding: 28px 22px; }
+    .inq-form { padding: 24px 20px; }
     .footer-top { flex-direction: column; gap: 24px; }
 
     /* Edge-to-edge full-bleed image grids — omgadrian.com style */
     .services-grid {
       grid-template-columns: 1fr !important; gap: 1px;
-      margin: 40px -6vw 0 !important; width: calc(100% + 12vw);
+      margin: 28px -6vw 0 !important; width: calc(100% + 12vw);
       border-radius: 0;
     }
-    .svc-card { padding: 28px 6vw; min-height: auto !important; }
+    .svc-card { padding: 22px 6vw; min-height: auto !important; }
     .svc-name { font-size: 1rem; }
 
     .listings-grid {
@@ -554,7 +557,7 @@
 
     .video-grid {
       grid-template-columns: 1fr; gap: 0;
-      margin: 40px -6vw 0; width: calc(100% + 12vw);
+      margin: 28px -6vw 0; width: calc(100% + 12vw);
     }
     .video-card { border-radius: 0; border-left: none; border-right: none; }
     .video-body { padding: 18px 6vw 22px; }
@@ -562,12 +565,16 @@
     .about-img-wrap { width: 100%; max-width: 260px; }
   }
 </style>
+<script src="numeric-font.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="site-utilities.css">
+<script src="site-enhancements.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="index.html" class="nav-brand"><img src="logo-razi.png" alt="Razi Property" style="height:40px;width:auto;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.3));"></a>
+  <a href="index.html" class="nav-brand"><img src="logo-razi-wordmark.svg" alt="Razi Property JB" style="height:28px;width:auto;display:block;"></a>
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="senaraihartanah.html">Listing</a>
@@ -614,7 +621,7 @@
 
     <!-- The Straits View DUO -->
     <a href="thestraitsviewduo.html" class="pg-card reveal">
-      <div class="pg-img"><img src="The_Straits_View_Duo.jpg" alt="The Straits View DUO"></div>
+      <div class="pg-img"><img src="_data/images/thestraitsviewduo/The_Straits_View_Duo.jpg" alt="The Straits View DUO"></div>
       <div class="pg-body">
         <div class="pg-loc">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -637,7 +644,7 @@
 
     <!-- Redhill -->
     <a href="redhill.html" class="pg-card reveal r2">
-      <div class="pg-img"><img src="redhill-hero.jpg" alt="Redhill Seri Alam"></div>
+      <div class="pg-img"><img src="_data/images/redhill/redhill-hero.jpg" alt="Redhill Seri Alam"></div>
       <div class="pg-body">
         <div class="pg-loc">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -660,7 +667,7 @@
 
     <!-- Premium Height Residence -->
     <a href="premiumheight.html" class="pg-card reveal r3">
-      <div class="pg-img"><img src="premium-height-hero.jpg" alt="Premium Height Residence"></div>
+      <div class="pg-img"><img src="_data/images/premiumheight/premium-height-hero.jpg" alt="Premium Height Residence"></div>
       <div class="pg-body">
         <div class="pg-loc">
           <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>

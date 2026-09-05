@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Fringe | Seri Alam | Razi Property JB</title>
+<meta name="description" content="The Fringe — rumah teres dua tingkat freehold di Seri Alam, Masai. Pilihan Intermediate dan End Lot dengan 4 bilik tidur.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -197,6 +198,10 @@
 </style>
   <link rel="stylesheet" href="project-product-layout.css">
   <script src="project-product-layout.js" defer></script>
+<script src="numeric-font.js" defer></script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="site-utilities.css">
+<script src="site-enhancements.js" defer></script>
 </head>
 <body>
 
@@ -240,7 +245,7 @@
     <div>
       <div class="hero-card">
         <div class="hero-card-title">Maklumat Projek · Project Info</div>
-        <div class="fact-row"><span class="fact-label">Harga Dari</span><span class="fact-value gold">RM 591,600</span></div>
+        <div class="fact-row"><span class="fact-label">Harga Dari</span><span class="fact-value gold">RM 578,000</span></div>
         <div class="fact-row"><span class="fact-label">Saiz Unit</span><span class="fact-value">1,951 sq.ft</span></div>
         <div class="fact-row"><span class="fact-label">Jenis</span><span class="fact-value">Double Storey Terrace</span></div>
         <div class="fact-row"><span class="fact-label">Tenure</span><span class="fact-value">Freehold</span></div>
@@ -296,15 +301,21 @@
   </div>
 </section>
 
-<!-- BUILDING IMAGE -->
-<section style="padding:0 8vw 88px;">
-  <div class="section-label" style="margin-bottom:16px;">Visual Projek · Building Render</div>
-  <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:8px;">
-    <div style="border-radius:8px;overflow:hidden;aspect-ratio:16/9;">
-      <img src="fringe-hero.jpg" alt="The Fringe Seri Alam" style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div style="border-radius:8px;overflow:hidden;background:var(--white);border:1px solid var(--gray-100);">
-      <img src="fringe-layout.jpg" alt="The Fringe Floor Plan" style="width:100%;height:100%;object-fit:contain;padding:8px;display:block;">
+<!-- GALLERY -->
+<section id="gallery" aria-label="Galeri The Fringe">
+  <div class="gallery-intro">Galeri The Fringe</div>
+  <div>
+    <div class="gallery-track">
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-hero.jpg" alt="The Fringe Seri Alam"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-living-room.jpg" alt="Ruang tamu The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-living-room-2.jpg" alt="Ruang tamu kedua The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-dining-area.jpg" alt="Ruang makan The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-kitchen.jpg" alt="Dapur The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-master-bedroom.jpg" alt="Bilik tidur utama The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-bedroom-2.jpg" alt="Bilik tidur The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-bedroom-2-1.jpg" alt="Bilik tidur kedua The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-bedroom-3.jpg" alt="Bilik tidur ketiga The Fringe"></div>
+      <div class="gallery-slide"><img src="_data/images/thefringe/fringe-bathroom.jpg" alt="Bilik mandi The Fringe"></div>
     </div>
   </div>
 </section>
@@ -319,19 +330,20 @@
     <div class="unit-card fade-in">
       <div class="unit-header" style="background:var(--white) !important;border-bottom:1px solid var(--gray-300);">
         <div class="unit-type">Intermediate Lot</div>
-        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM591,600 · Non-Bumi: —</div>
+        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM578,000 · Non-Bumi: —</div>
       </div>
       <div class="unit-body">
+        <div class="unit-layout"><img src="_data/images/thefringe/fringe-layout.jpg" alt="Pelan layout Intermediate Lot The Fringe"></div>
         <div class="unit-specs">
           <div class="unit-spec"><div class="unit-spec-val">1,951</div><div class="unit-spec-label">sq.ft</div></div>
           <div class="unit-spec"><div class="unit-spec-val">4</div><div class="unit-spec-label">Bilik</div></div>
           <div class="unit-spec"><div class="unit-spec-val">3</div><div class="unit-spec-label">Bilik Mandi</div></div>
         </div>
         <div class="unit-price">
-          <div><div class="unit-price-label">Nett Price (Bumi)</div><div class="unit-price-val">RM 591,600</div></div>
+          <div><div class="unit-price-label">Nett Price (Bumi)</div><div class="unit-price-val">RM 578,000</div></div>
         </div>
         <ul class="unit-features">
-          <li>SPA Price: RM680,000 · Rebate 13%</li>
+          <li>SPA Price: RM680,000</li>
           <li>Keluasan tanah 20' × 70'</li>
           <li>4 Bilik Tidur + 3 Bilik Mandi</li>
           <li>FREE Legal Fee SPA & Loan</li>
@@ -344,20 +356,21 @@
     <div class="unit-card fade-in">
       <div class="unit-header" style="background:var(--white) !important;border-bottom:1px solid var(--gray-300);">
         <div class="unit-type">End Lot</div>
-        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM628,575 · Non-Bumi: RM754,200</div>
+        <div class="unit-subtype" style="color:var(--gray-600) !important;">Bumi: RM614,125 · Non-Bumi: RM736,862</div>
       </div>
       <div class="unit-body">
+        <div class="unit-layout"><img src="_data/images/thefringe/fringe-layout.jpg" alt="Pelan layout End Lot The Fringe"></div>
         <div class="unit-specs">
           <div class="unit-spec"><div class="unit-spec-val">1,951</div><div class="unit-spec-label">sq.ft</div></div>
           <div class="unit-spec"><div class="unit-spec-val">4</div><div class="unit-spec-label">Bilik</div></div>
           <div class="unit-spec"><div class="unit-spec-val">3</div><div class="unit-spec-label">Bilik Mandi</div></div>
         </div>
         <div class="unit-price">
-          <div><div class="unit-price-label">Nett Price (Bumi)</div><div class="unit-price-val">RM 628,575</div></div>
+          <div><div class="unit-price-label">Nett Price (Bumi)</div><div class="unit-price-val">RM 614,125</div></div>
         </div>
         <ul class="unit-features">
-          <li>SPA Price: RM722,500 · Rebate 13%</li>
-          <li>Non-Bumi Nett: RM754,200</li>
+          <li>SPA Price: RM722,500</li>
+          <li>Non-Bumi Nett: RM736,862</li>
           <li>Lot sudut — lebih cahaya & ruang</li>
           <li>FREE Legal Fee SPA & Loan</li>
         </ul>
@@ -421,9 +434,9 @@
           <label>Jenis Unit Diminati</label>
           <select id="a-unit">
             <option value="">-- Pilih --</option>
-            <option>Intermediate Lot (1,951 sqft) — Bumi RM591,600</option>
-            <option>End Lot (1,951 sqft) — Bumi RM628,575 / Non-Bumi RM754,200</option>
-            <option>Corner Lot (1,951 sqft) — Bumi RM873,243 / Non-Bumi RM1,040,310</option>
+            <option>Intermediate Lot (1,951 sqft) — Bumi RM578,000</option>
+            <option>End Lot (1,951 sqft) — Bumi RM614,125 / Non-Bumi RM736,862</option>
+            <option>Corner Lot (1,951 sqft) — Bumi RM853,168 / Non-Bumi RM1,016,395</option>
             <option>Belum pasti — nak tanya dulu</option>
           </select>
         </div>
@@ -462,7 +475,7 @@
 <div class="sticky-cta" id="stickyCta">
   <div class="sticky-text">
     <strong>The Fringe — Seri Alam, Masai!</strong>
-    Dari RM591,600 (Bumi) · Freehold · 20'×70' · Seri Alam
+    Dari RM578,000 (Bumi) · Freehold · 20'×70' · Seri Alam
   </div>
   <div class="sticky-btns">
     <a href="#eoi" class="btn-outline-white" style="font-size:0.78rem;padding:10px 16px;">Daftar Minat</a>

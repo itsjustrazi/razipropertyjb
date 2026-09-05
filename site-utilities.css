@@ -1,0 +1,20 @@
+/* Shared accessibility, mobile and fallback rules for all public pages. */
+html, body { max-width: 100%; overflow-x: clip; }
+img, picture, video, iframe, svg { max-width: 100%; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+a[href^="tel:"] { white-space: nowrap; }
+
+.mobile-menu { display: none !important; }
+.site-feedback {
+  margin-top: 12px;
+  padding: 11px 13px;
+  border-radius: 4px;
+  font: 500 .8rem/1.45 'Inter', Arial, sans-serif;
+}
+.site-feedback--success { color: #065F46; background: #ECFDF5; border: 1px solid #6EE7B7; }
+.site-feedback--error { color: #991B1B; background: #FEF2F2; border: 1px solid #FCA5A5; }
+
+@media (max-width: 640px) {
+  body { overflow-x: hidden; }
+  input, select, textarea, button { max-width: 100%; }
+}

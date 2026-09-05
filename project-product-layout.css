@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+
 /* Shared product-detail treatment for every project page.
    Palette follows senarai-hartanah.html. */
 :root {
@@ -15,10 +17,10 @@
 
   /* Legacy project tokens, remapped to the listing palette. */
   --navy: #1A3A5C;
-  --gold: #1A3A5C;
-  --gold-light: #0D2137;
-  --yellow: #1A3A5C;
-  --yellow-light: #0D2137;
+  --gold: #0A0A0F;
+  --gold-light: #0A0A0F;
+  --yellow: #0A0A0F;
+  --yellow-light: #0A0A0F;
   --ivory: #FFFFFF;
   --charcoal: #0A0A0F;
   --muted: #6B7280;
@@ -52,9 +54,9 @@ nav {
   box-shadow: none !important;
   backdrop-filter: saturate(180%) blur(20px);
 }
-nav .nav-brand { display: flex !important; align-items: center !important; text-decoration: none !important; }
-nav .nav-brand img { height: 40px !important; width: auto !important; display: block !important; }
-nav .nav-links { display: flex !important; align-items: center !important; gap: 28px !important; }
+nav .nav-brand { position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; z-index: 2; display: flex !important; align-items: center !important; text-decoration: none !important; }
+nav .nav-brand img { height: 28px !important; width: auto !important; max-width: min(42vw, 230px) !important; display: block !important; }
+nav .nav-links { display: flex !important; align-items: center !important; gap: 28px !important; margin-left: auto !important; }
 nav .nav-links a {
   color: var(--black) !important;
   font-family: 'Inter', sans-serif !important;
@@ -68,6 +70,7 @@ nav .nav-links a {
 nav .nav-links a:hover { color: var(--blue) !important; }
 nav .nav-hamburger {
   display: none !important;
+  margin-left: auto !important;
   flex-direction: column !important;
   gap: 5px !important;
   padding: 8px !important;
@@ -103,10 +106,10 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
 .product-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(330px, 0.8fr);
-  gap: clamp(28px, 4vw, 64px);
+  gap: clamp(24px, 3vw, 46px);
   max-width: 1600px;
   margin: 0 auto;
-  padding: 100px 4vw 76px;
+  padding: 78px 4vw 56px;
   align-items: start;
   background: var(--white);
 }
@@ -184,6 +187,7 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
   overflow: visible !important;
   background: var(--white) !important;
   color: var(--black) !important;
+  padding: 0 !important;
 }
 .product-info .hero-bg,
 .product-info .hero-bg-pattern,
@@ -273,6 +277,10 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
 .product-info .hero-card-title { color: var(--blue) !important; font-family: 'Inter', sans-serif !important; }
 .product-info .card-price-tag,
 .product-info .fact-value.gold { color: var(--blue) !important; }
+.product-info .price-from,
+.product-info .price-psf,
+.product-info .hero-card p:not(.hero-card-title):not(.card-disclaimer) { color: var(--gray-600) !important; }
+.product-info .price-value { color: var(--black) !important; }
 .product-info .stats-grid { gap: 12px !important; }
 .product-info .stat-item { background: var(--white) !important; border-color: var(--gray-300) !important; }
 .product-info .stat-value,
@@ -288,11 +296,13 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
 /* Remaining project content uses the same neutral canvas and blue actions. */
 .overview, .units, .facilities, .location, .why-razi, .cta-section,
 .section, .unit-section, .eoi-section { background: var(--white) !important; }
+html.product-template :is(.overview, .units, .facilities, .location, .why-razi, .cta-section,
+  .section, .unit-section, .eoi-section) { padding-top: 64px !important; padding-bottom: 64px !important; }
 .section-title, .section h2, .overview h2, .units h2, .facilities h2, .location h2,
 .eoi-form-title, .unit-type, .unit-spec-val { color: var(--black) !important; font-family: 'Inter', sans-serif !important; }
 .section-title em { color: var(--blue) !important; }
 .section-eyebrow, .section-label, .facility-section-label { color: var(--blue) !important; }
-.section-label::before, .section-eyebrow::before { background: var(--blue) !important; }
+.section-label::before, .section-eyebrow::before { content: none !important; display: none !important; }
 .section-body, .section-desc, .overview p, .units-intro p, .facilities p,
 .highlights-list li, .sell-pts li { color: var(--gray-600) !important; }
 .overview-specs, .spec-item, .unit-card, .eoi-form, .fac-card { border-color: var(--gray-300) !important; }
@@ -300,9 +310,27 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
 .spec-label, .unit-spec-label, .form-group label { color: var(--gray-600) !important; }
 .spec-value, .hl-text strong, .fac-name { color: var(--black) !important; }
 .btn-unit, .btn-eoi { background: var(--blue) !important; color: var(--white) !important; border-color: var(--blue) !important; }
+.btn-fp-inquire { background: var(--blue) !important; color: var(--white) !important; border-color: var(--blue) !important; }
 .btn-unit:hover, .btn-eoi:hover { background: var(--blue-mid) !important; }
 .unit-header, .unit-price { background: var(--blue) !important; }
+.unit-header .unit-type { color: var(--white) !important; }
+.unit-header .unit-subtype { color: rgba(255,255,255,.72) !important; }
+.unit-header[style*="background:var(--white)"] .unit-type { color: var(--black) !important; }
+.unit-header[style*="background:var(--white)"] .unit-subtype { color: var(--gray-600) !important; }
 .unit-price-val { color: var(--white) !important; }
+.unit-layout {
+  margin: 0 0 20px;
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+  background: var(--white);
+}
+.unit-layout img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  padding: 12px;
+}
 .unit-features li::before, .sell-pts li::before { color: var(--blue) !important; }
 .hl-icon { background: var(--white) !important; border: 1px solid var(--gray-300); }
 .hl-icon svg { fill: var(--blue) !important; }
@@ -318,6 +346,76 @@ nav .nav-hamburger span { width: 22px !important; height: 2px !important; displa
 footer { background: var(--black) !important; }
 .footer-proj { color: var(--blue-light) !important; }
 
+/* Original call-to-action blocks can remain after the product header is rebuilt. */
+.cta-section .section-eyebrow,
+.cta-section .cta-title,
+.cta-section .cta-title em { color: var(--black) !important; }
+.cta-section .cta-title em { color: var(--blue) !important; }
+.cta-section .cta-subtitle,
+.cta-section .cta-note { color: var(--gray-600) !important; }
+.cta-section .cta-form input,
+.cta-section .cta-form select {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  border-color: var(--gray-300) !important;
+}
+.cta-section .cta-form input::placeholder { color: var(--gray-500) !important; }
+.cta-section .cta-submit,
+.cta-section .cta-wa,
+.nav-cta,
+.m-cta {
+  background: var(--blue) !important;
+  color: var(--white) !important;
+  border-color: var(--blue) !important;
+}
+
+/* Text in retained navy cards must never inherit the former gold token. */
+.rts-card :is(.rts-badge, .rts-title, .rts-title em, .rts-stat-val),
+.agent-card :is(.agent-name, .agent-title),
+.legal-strip :is(strong, .legal-inner),
+.sticky-cta :is(.cta-title, .cta-title em, .cta-subtitle, .cta-note) {
+  color: var(--white) !important;
+}
+.rts-card :is(.rts-stat-label, p),
+.agent-card .agent-ren,
+.legal-strip .legal-inner { color: rgba(255,255,255,.72) !important; }
+
+/* Legacy dark panels inherit navy from the old design. Keep every label readable. */
+:is(.overview-visual, .rts-card, .agent-card, .legal-strip, .sticky-cta, footer) :is(
+  .section-title, .section-title em, .ov-title, .ov-title em, .rts-title, .rts-title em,
+  .agent-title, .footer-brand, .footer-brand span, .footer-ren, .price-value,
+  [style*="color:var(--gold)"], [style*="color:var(--yellow)"]
+) { color: var(--white) !important; }
+.location :is(.section-title em, .loc-dist, .conn-time, [style*="color:var(--gold)"], [style*="color:var(--yellow)"]),
+.location-section :is(.section-title em, .loc-dist, .conn-time, [style*="color:var(--gold)"], [style*="color:var(--yellow)"]) { color: var(--white) !important; }
+.fp-price-bar :is(.fp-price-val, .fp-price-value, [style*="color:var(--gold)"]) { color: var(--white) !important; }
+
+/* The Fringe section palette, applied to the legacy project sections as well. */
+.facilities :is(.fac-cat, .fac-partial, .fac-partial-tag) {
+  background: var(--gray-100) !important;
+  border-color: var(--gray-300) !important;
+}
+.facilities :is(.fac-count, .fac-cat-title, .fac-partial-title) { color: var(--black) !important; }
+.facilities :is(.fac-list li, .fac-partial-tag) { color: var(--gray-600) !important; }
+
+/* Location information cards stay white inside the navy location section. */
+.location .loc-item {
+  background: var(--white) !important;
+  border-color: var(--gray-300) !important;
+}
+.location .loc-cat-name { color: var(--white) !important; }
+.location .loc-item :is(.loc-name, .loc-dist) { color: var(--black) !important; }
+
+/* Navy visual cards use white copy, just like the corresponding Fringe cards. */
+.overview-visual .ov-tag {
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.25) !important;
+  color: var(--white) !important;
+}
+.overview-visual { background: var(--blue) !important; }
+.overview-visual .ov-bg { background-image: none !important; }
+.overview-visual .ov-body { color: var(--white) !important; }
+
 /* Listing typography: compact Inter labels and tabular numeric values. */
 .product-template :is(h1, h2, h3, h4, p, a, button, input, select, textarea, td, th, span, li, div) {
   font-family: 'Inter', sans-serif;
@@ -328,7 +426,6 @@ footer { background: var(--black) !important; }
 }
 .product-template .stat-value,
 .product-template .fact-value,
-.product-template .price-from,
 .product-template .unit-price-val {
   font-size: 1rem !important;
   font-weight: 700 !important;
@@ -336,7 +433,6 @@ footer { background: var(--black) !important; }
 }
 .product-template .stat-label,
 .product-template .fact-label,
-.product-template .price-from + *,
 .product-template .unit-spec-label {
   font-size: .68rem !important;
   font-weight: 500 !important;
@@ -344,18 +440,42 @@ footer { background: var(--black) !important; }
   text-transform: uppercase;
 }
 
+/* Make the actual price the visual focus, not its supporting label. */
+.product-template .price-from,
+.product-template .unit-price-label,
+.product-template .fp-price-label {
+  font-size: .62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase;
+}
+.product-template .card-price-tag .price-value {
+  font-size: clamp(1.8rem, 2.6vw, 2.45rem) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.04em !important;
+  line-height: 1 !important;
+}
+.product-template :is(.unit-price-val, .unit-price-value, .fp-price-val) {
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -.02em !important;
+}
+.product-template :is(.unit-price-val, .unit-price-value, .fp-price-val) { color: var(--white) !important; }
+
 @media (max-width: 860px) {
   body { padding-bottom: 74px; }
   nav { min-height: 56px !important; padding: 0 5vw !important; }
   nav .nav-links { display: none !important; }
   nav .nav-hamburger { display: flex !important; }
-  .product-layout { display: block; padding: 76px 0 48px; }
-  .product-media { margin-bottom: 34px; }
+  .product-layout { display: block; padding: 70px 0 38px; }
+  .product-media { margin-bottom: 24px; }
   .product-info { position: static !important; padding: 0 5vw; }
   .product-info .hero-title { font-size: clamp(2.15rem, 11vw, 3rem) !important; }
   .product-media .gallery-slide,
   .product-media--generated figure { aspect-ratio: 1 / 1.05 !important; }
   .section, .overview, .units, .facilities, .location, .why-razi, .cta-section { padding-left: 5vw !important; padding-right: 5vw !important; }
+  html.product-template :is(.overview, .units, .facilities, .location, .why-razi, .cta-section,
+    .section, .unit-section, .eoi-section) { padding-top: 46px !important; padding-bottom: 46px !important; }
 }
 
 @media (max-width: 520px) {
