@@ -30,9 +30,9 @@
       'MGM_Apartment.jpg', 'Entrance_MGM.jpg', 'MGM_Fasilities_1.jpg',
       'MGM_Fasilities.jpg', 'M_Grand_Minori_Fasilities_Layout.jpg'
     ],
-    'mtiara.html': [
-      'mtiara-hero.jpg', 'mtiara-1.jpg', 'mtiara-2.jpg', 'mtiara-3.jpg', 'mtiara-4.jpg'
-    ],
+    'mtiara.html': Array.from({ length: 28 }, function (_, index) {
+      return 'mtiara-' + String(index + 1).padStart(2, '0') + '.jpg';
+    }),
     'premiumheight.html': [
       'premium-height-hero.jpg', 'ph-living.jpg', 'ph-bedroom.jpg', 'ph-bedroom2.jpg',
       'ph-master-bed.jpg', 'ph-master-bed2.jpg', 'ph-kitchen.jpg', 'ph-kitchen2.jpg',
