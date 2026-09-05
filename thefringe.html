@@ -476,29 +476,12 @@ redirect_from:
   <div class="footer-copy">© 2025 Razi Property JB. Semua hak terpelihara.</div>
 </footer>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta" id="stickyCta">
-  <div class="sticky-text">
-    <strong>The Fringe — Seri Alam, Masai!</strong>
-    Dari RM578,000 (Bumi) · Freehold · 20'×70' · Seri Alam
-  </div>
-  <div class="sticky-btns">
-    <a href="#eoi" class="btn-outline-white" style="font-size:0.78rem;padding:10px 16px;">Daftar Minat</a>
-    <a href="https://wa.me/601154065243?text=Hi%20Razi%2C%20saya%20berminat%20The%20Fringe%2C%20Seri%20Alam.%20Boleh%20info?" class="btn-gold" style="font-size:0.78rem;padding:10px 16px;" target="_blank">WhatsApp Razi</a>
-  </div>
-</div>
-
 <script>
   // Fade in
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Sticky CTA
-  window.addEventListener('scroll', () => {
-    document.getElementById('stickyCta').classList.toggle('show', window.scrollY > 500);
-  });
 
   // EOI submit
   function submitEOI() {
