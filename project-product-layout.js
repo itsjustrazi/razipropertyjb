@@ -51,6 +51,30 @@
     return pageName.endsWith('.html') ? pageName : `${pageName}.html`;
   }
 
+  function getProjectImagePath(source, folder) {
+    if (!source || /^(https?:|data:|#)/i.test(source)) return source;
+    const originalName = source.split('/').pop();
+    const imageName = imageAliases[originalName] || originalName;
+    return `/images/${folder}/${imageName}`;
+  }
+
+  function mapLightboxArray(sourceList, folder) {
+    if (!Array.isArray(sourceList)) return;
+    sourceList.forEach((source, index) => {
+      sourceList[index] = getProjectImagePath(source, folder);
+    });
+  }
+
+  function mapLightboxSources(folder) {
+    document.querySelectorAll('[data-src]').forEach((element) => {
+      element.setAttribute('data-src', getProjectImagePath(element.getAttribute('data-src'), folder));
+    });
+
+    try { mapLightboxArray(gSrcs, folder); } catch {}
+    try { mapLightboxArray(fpSrcs, folder); } catch {}
+    try { mapLightboxArray(gallerySrcs, folder); } catch {}
+  }
+
   function mapProjectImages() {
     const pageName = getCurrentProjectFileName();
     const folder = projectImageFolders[pageName];
@@ -59,10 +83,9 @@
     document.querySelectorAll('img[src]').forEach((image) => {
       const source = image.getAttribute('src');
       if (!source || /^(https?:|data:|#)/i.test(source) || /^(logo-razi|razi-profile)/i.test(source)) return;
-      const originalName = source.split('/').pop();
-      const imageName = imageAliases[originalName] || originalName;
-      image.setAttribute('src', `/images/${folder}/${imageName}`);
+      image.setAttribute('src', getProjectImagePath(source, folder));
     });
+    mapLightboxSources(folder);
   }
 
   function addGalleryImages() {
