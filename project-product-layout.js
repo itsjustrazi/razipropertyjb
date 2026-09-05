@@ -45,8 +45,13 @@
     ]
   };
 
-  function mapProjectImages() {
+  function getCurrentProjectFileName() {
     const pageName = window.location.pathname.split('/').pop().toLowerCase();
+    return pageName.endsWith('.html') ? pageName : `${pageName}.html`;
+  }
+
+  function mapProjectImages() {
+    const pageName = getCurrentProjectFileName();
     const folder = projectImageFolders[pageName];
     if (!folder) return;
 
@@ -60,7 +65,7 @@
   }
 
   function addGalleryImages() {
-    const pageName = window.location.pathname.split('/').pop().toLowerCase();
+    const pageName = getCurrentProjectFileName();
     const folder = projectImageFolders[pageName];
     const imageNames = projectGalleryImages[pageName];
     const track = document.querySelector('#gallery .gallery-track');

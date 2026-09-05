@@ -4,6 +4,13 @@
 [build.processing.html]
   pretty_urls = true
 
+# Halaman utama sentiasa menggunakan URL root.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # Pengalihan automatik (301 Redirect) dari .html ke Clean URL
 [[redirects]]
   from = "/*.html"

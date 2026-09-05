@@ -18,6 +18,21 @@
     });
   }
 
+  function useCleanUrls() {
+    if (!/^https?:$/.test(window.location.protocol)) return;
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const rawHref = link.getAttribute('href');
+      if (!rawHref || /^(?:#|mailto:|tel:|javascript:)/i.test(rawHref)) return;
+      let target;
+      try { target = new URL(rawHref, window.location.href); } catch { return; }
+      if (target.origin !== window.location.origin || !target.pathname.endsWith('.html')) return;
+      target.pathname = target.pathname === '/index.html'
+        ? '/'
+        : target.pathname.replace(/\.html$/, '');
+      link.setAttribute('href', `${target.pathname}${target.search}${target.hash}`);
+    });
+  }
+
   function linkPhoneNumbers() {
     const ignored = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'OPTION']);
     const phonePattern = /(?:\+?60|0)1\d(?:[-\s]?\d){7,8}/;
@@ -98,6 +113,7 @@
   function initialise() {
     addFavicon();
     updateCopyright();
+    useCleanUrls();
     linkPhoneNumbers();
     improveFormAccessibility();
     optimiseImages();
