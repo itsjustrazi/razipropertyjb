@@ -26,9 +26,16 @@
       let target;
       try { target = new URL(rawHref, window.location.href); } catch { return; }
       if (target.origin !== window.location.origin || !target.pathname.endsWith('.html')) return;
-      target.pathname = target.pathname === '/index.html'
-        ? '/'
-        : target.pathname.replace(/\.html$/, '/');
+      const rootDocument = rawHref.split(/[?#]/)[0].replace(/^\.\//, '');
+      if (/^[^/]+\.html$/i.test(rootDocument)) {
+        target.pathname = rootDocument.toLowerCase() === 'index.html'
+          ? '/'
+          : `/${rootDocument.replace(/\.html$/i, '/')}`;
+      } else {
+        target.pathname = target.pathname === '/index.html'
+          ? '/'
+          : target.pathname.replace(/\.html$/, '/');
+      }
       link.setAttribute('href', `${target.pathname}${target.search}${target.hash}`);
     });
   }
