@@ -22,7 +22,7 @@ redirect_from:
     .hero-content { display: grid; gap: 24px; }
     .hero-tag { text-transform: uppercase; }
     .mtiara-price { margin: 22px 0 0; padding: 18px 0; border-top: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; }
-    .mtiara-price span { display: block; color: #6b7280; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .mtiara-price > span { display: block; color: #6b7280; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
     .mtiara-price strong { display: flex; align-items: baseline; gap: 8px; margin-top: 5px; color: #1a3a5c; line-height: 1; }
     .mtiara-price .currency { display: inline; color: #1a3a5c; font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
     .mtiara-price .price-number { display: inline; color: #1a3a5c; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -.06em; }
@@ -30,6 +30,13 @@ redirect_from:
     .mtiara-actions a, .form-button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border: 1px solid #1a3a5c; border-radius: 4px; font: 700 .78rem Inter, sans-serif; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; cursor: pointer; }
     .mtiara-actions a:first-child, .form-button { background: #1a3a5c; color: #fff; }
     .mtiara-actions a:last-child { background: #fff; color: #1a3a5c; }
+    .mtiara-info { margin-top: 24px; padding: 22px; border: 1px solid #dfe3e8; background: #fff; }
+    .mtiara-info-title { margin: 0 0 18px; color: #1a3a5c; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .mtiara-info-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 13px 0; border-top: 1px solid #e5e7eb; }
+    .mtiara-info-row:first-of-type { border-top: 0; padding-top: 0; }
+    .mtiara-info-label { flex: 0 0 auto; color: #6b7280; font-size: .66rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+    .mtiara-info-value { color: #0a0a0f; font-size: .94rem; font-weight: 800; letter-spacing: -.02em; text-align: right; }
+    .mtiara-info-row:first-of-type .mtiara-info-value { color: #1a3a5c; }
     .mtiara-section { max-width: 1600px; margin: 0 auto; padding: 72px 4vw; border-top: 1px solid #e5e7eb; }
     .mtiara-kicker { margin: 0 0 10px; color: #1a3a5c; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
     .mtiara-heading { max-width: 720px; margin: 0; font-size: clamp(2rem, 4vw, 4rem); letter-spacing: -.065em; line-height: 1.02; }
@@ -95,8 +102,9 @@ redirect_from:
   <section class="hero">
     <div class="hero-content">
       <div>
-        <p class="hero-tag">Projek Baru · Mutiara Rini, Skudai</p>
+        <p class="hero-tag">Projek Baru · New Project · Mutiara Rini, Skudai, JB</p>
         <h1 class="hero-title">M <em>Tiara</em></h1>
+        <p class="hero-subtitle">Mutiara Rini · Mah Sing</p>
         <div class="pills">
           <span class="pill pill-gold">Freehold</span>
           <span class="pill">Landed House</span>
@@ -108,6 +116,16 @@ redirect_from:
         <div class="mtiara-actions">
           <a href="#daftar">Daftar Minat</a>
           <a href="#unit">Pilihan Unit</a>
+        </div>
+        <div class="mtiara-info" aria-label="Maklumat Projek M Tiara">
+          <p class="mtiara-info-title">Maklumat Projek · Project Info</p>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Harga Dari</span><span class="mtiara-info-value">RM 698,880</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Saiz Unit</span><span class="mtiara-info-value">1,798–2,157 sq.ft</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Jenis</span><span class="mtiara-info-value">Double Storey &amp; Cluster House</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Tenure</span><span class="mtiara-info-value">Freehold</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Pemaju</span><span class="mtiara-info-value">Mah Sing</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Keluasan Tanah</span><span class="mtiara-info-value">20'–32' × 70'</span></div>
+          <div class="mtiara-info-row"><span class="mtiara-info-label">Siap</span><span class="mtiara-info-value">2028</span></div>
         </div>
       </div>
     </div>
