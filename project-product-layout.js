@@ -4,6 +4,7 @@
     'allamanda.html': 'allamanda',
     'caliaresidence.html': 'caliaresidence',
     'mgrandminori.html': 'mgrandminori',
+    'mtiara.html': 'mtiara',
     'premiumheight.html': 'premiumheight',
     'redhill.html': 'redhill',
     'thefringe.html': 'thefringe',
@@ -28,6 +29,9 @@
     'mgrandminori.html': [
       'MGM_Apartment.jpg', 'Entrance_MGM.jpg', 'MGM_Fasilities_1.jpg',
       'MGM_Fasilities.jpg', 'M_Grand_Minori_Fasilities_Layout.jpg'
+    ],
+    'mtiara.html': [
+      'mtiara-hero.jpg', 'mtiara-1.jpg', 'mtiara-2.jpg', 'mtiara-3.jpg', 'mtiara-4.jpg'
     ],
     'premiumheight.html': [
       'premium-height-hero.jpg', 'ph-living.jpg', 'ph-bedroom.jpg', 'ph-bedroom2.jpg',
