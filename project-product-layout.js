@@ -61,7 +61,7 @@
       if (!source || /^(https?:|data:|#)/i.test(source) || /^(logo-razi|razi-profile)/i.test(source)) return;
       const originalName = source.split('/').pop();
       const imageName = imageAliases[originalName] || originalName;
-      image.setAttribute('src', `images/${folder}/${imageName}`);
+      image.setAttribute('src', `/images/${folder}/${imageName}`);
     });
   }
 
@@ -80,7 +80,7 @@
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
       const image = document.createElement('img');
-      image.src = `images/${folder}/${imageName}`;
+      image.src = `/images/${folder}/${imageName}`;
       image.alt = 'Galeri projek';
       image.loading = 'lazy';
       slide.appendChild(image);
