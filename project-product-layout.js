@@ -114,7 +114,7 @@
     const brand = document.createElement('a');
     brand.className = 'nav-brand';
     brand.href = 'index.html';
-    brand.innerHTML = '<img src="logo-razi-wordmark.svg" alt="Razi Property JB">';
+    brand.innerHTML = '<img src="/logo-razi-wordmark.svg" alt="Razi Property JB">';
 
     const links = document.createElement('div');
     links.className = 'nav-links';
