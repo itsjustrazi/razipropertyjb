@@ -1094,6 +1094,9 @@ redirect_from:
     .lightbox-nav:hover { background: var(--gold); color: var(--navy); }
     .lightbox-prev { left: 20px; }
     .lightbox-next { right: 20px; }
+    .unit-layout { display: block; width: 100%; padding: 0; cursor: zoom-in; }
+    .unit-layout:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .lightbox.layout-view .lightbox-nav, .lightbox.layout-view .lightbox-cap { display: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -1302,7 +1305,7 @@ redirect_from:
     <div class="units-grid"><div class="unit-card">
       <div class="unit-header"><span class="unit-type">Intermediate</span><span class="unit-size">1,951 sq.ft</span></div>
       <div class="unit-body">
-        <div class="unit-layout"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout Intermediate Lot Redhill"></div>
+        <button class="unit-layout" type="button" onclick="openLayout(this)" aria-label="Besarkan pelan Intermediate Lot Redhill"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout Intermediate Lot Redhill"></button>
         <p class="unit-desc">Bumi: RM584,800 · Non-Bumi: RM678,300</p>
         <p class="unit-note">SPA: RM688K (Bumi). Hubungi Razi untuk semakan harga dan ketersediaan unit.</p>
         <div class="unit-price"><span class="unit-price-label">Nett Price (Bumi)</span><span class="unit-price-value">RM 584,800</span></div>
@@ -1310,7 +1313,7 @@ redirect_from:
       </div></div><div class="unit-card">
       <div class="unit-header"><span class="unit-type">End Lot</span><span class="unit-size">1,951 sq.ft</span></div>
       <div class="unit-body">
-        <div class="unit-layout"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout End Lot Redhill"></div>
+        <button class="unit-layout" type="button" onclick="openLayout(this)" aria-label="Besarkan pelan End Lot Redhill"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout End Lot Redhill"></button>
         <p class="unit-desc">Bumi: RM614,125 · Non-Bumi: RM720,800</p>
         <p class="unit-note">SPA: RM722,500 (Bumi). Lot sudut dengan lebih cahaya dan ruang.</p>
         <div class="unit-price"><span class="unit-price-label">Nett Price (Bumi)</span><span class="unit-price-value">RM 614,125</span></div>
@@ -1318,7 +1321,7 @@ redirect_from:
       </div></div><div class="unit-card">
       <div class="unit-header"><span class="unit-type">Corner Lot</span><span class="unit-size">2,002 sq.ft</span></div>
       <div class="unit-body">
-        <div class="unit-layout"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout Corner Lot Redhill"></div>
+        <button class="unit-layout" type="button" onclick="openLayout(this)" aria-label="Besarkan pelan Corner Lot Redhill"><img src="/images/redhill/redhill-layout.jpg" alt="Pelan layout Corner Lot Redhill"></button>
         <p class="unit-desc">Bumi: Hubungi Razi · Non-Bumi: RM945,200</p>
         <p class="unit-note">Saiz terluas 2,002sqft. Non-Bumi SPA: RM1,112,000 · Harga semasa: RM945,200.</p>
         <div class="unit-price"><span class="unit-price-label">Harga</span><span class="unit-price-value">Hubungi Razi</span></div>
@@ -1440,10 +1443,11 @@ function showFP(t,e){document.querySelectorAll('.fp-panel').forEach(p=>p.classLi
 let lbMode='g',lbGI=0;
 const gSrcs=["redhill-hero.jpg", "redhill-living.jpg", "redhill-living2.jpg", "redhill-dining.jpg", "redhill-kitchen.jpg", "redhill-master-bed.jpg", "redhill-bedroom.jpg", "redhill-bathroom.jpg"],gCaps=["Luaran Bangunan", "Ruang Tamu", "Ruang Tamu", "Ruang Makan", "Dapur", "Master Bedroom", "Bilik Tidur", "Bilik Air"];
 const fpSrcs=["redhill-hero.jpg"],fpCaps=["Redhill Seri Alam"];
-function openGalleryLb(i){lbMode='g';lbGI=i;document.getElementById('lbImg').src=gSrcs[i];document.getElementById('lbCap').textContent=gCaps[i];document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function openFP(el){lbMode='fp';document.getElementById('lbImg').src=el.getAttribute('data-src');document.getElementById('lbCap').textContent=el.getAttribute('data-cap')||'';document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function openGalleryLb(i){lbMode='g';lbGI=i;document.getElementById('lbImg').src=gSrcs[i];document.getElementById('lbCap').textContent=gCaps[i];document.getElementById('lightbox').classList.remove('layout-view');document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function openFP(el){lbMode='fp';document.getElementById('lbImg').src=el.getAttribute('data-src');document.getElementById('lbCap').textContent=el.getAttribute('data-cap')||'';document.getElementById('lightbox').classList.remove('layout-view');document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
+function openLayout(el){const image=el.querySelector('img');lbMode='layout';document.getElementById('lbImg').src=image.currentSrc||image.src;document.getElementById('lbImg').alt=image.alt;document.getElementById('lbCap').textContent='';document.getElementById('lightbox').classList.add('layout-view','open');document.body.style.overflow='hidden';}
 function lbNav(dir){const img=document.getElementById('lbImg');if(lbMode==='g'){lbGI=((lbGI+dir)+gSrcs.length)%gSrcs.length;img.src=gSrcs[lbGI];document.getElementById('lbCap').textContent=gCaps[lbGI];}else if(lbMode==='fp'){const c=fpSrcs.findIndex(f=>img.src.endsWith(f));const n=((c+dir)+fpSrcs.length)%fpSrcs.length;img.src=fpSrcs[n];document.getElementById('lbCap').textContent=fpCaps[n];}}
-function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function closeLb(){document.getElementById('lightbox').classList.remove('open','layout-view');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
 
 function submitEOI(){
